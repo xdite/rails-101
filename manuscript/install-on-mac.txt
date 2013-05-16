@@ -1,4 +1,4 @@
-# Mac 是最好的 Ruby on Rails 開發環境
+# Ruby on Rails 安裝最佳實踐
 
 
 ### 打造 Bug Free 的 Rails 開發環境
@@ -11,11 +11,15 @@ project 還沒開始寫半行，先被困在莫名其妙的套件相依性上。
 
 我們公司 [Rocodev](http://rocodev.com) 寫了一份 Ruby on Rails 安裝最佳實踐，這份教學幾乎是 Bug Free。
 
-最新版本在此：<https://github.com/rocodev/guides/wiki/setup-mac-development>
 
-如果書中的內容過期，請到此頁面找尋最新版解法。
+I> ## 最新版本
+I>
+I> 最新版本在此：<https://github.com/rocodev/guides/wiki/setup-mac-development>
+I> 如果書中的內容過期，請到此頁面找尋最新版解法。
 
-### 為什麼要買 Mac?
+
+
+### Mac 是最好的 Ruby on Rails 開發環境，馬上買一台！
 
 看到標題，也許你心裡浮出了問號？我只是想試看看 Rails，有必要這樣大手筆的購買設備嗎？
 
@@ -33,7 +37,7 @@ Linux 使用者都會因為 package system maintainer 不是 Rails Developer 而
 
 {::pagebreak :/}
 
-## Rails on Mac 安裝最佳實務
+## 安裝步驟
 
 
 `強烈警告：請絕對不要跳著裝！如果疏漏步驟有可能導致無法復原需要重灌。`
@@ -94,7 +98,7 @@ $ launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
 {::pagebreak :/}
 
 
-### 安裝 RVM 與 Ruby 1.9.3
+### 安裝 RVM 與 Ruby 2.0
 
 在建制 Rails 環境的時候，我們可能會有跑不同版本的 Ruby 或者不同的 getsemt 的需求。[Ruby Version Manager](https://rvm.beginrescueend.com/) 是一個能夠讓我們用很優雅的方式切換 Ruby 版本的工具。同時使用系統 Ruby，其實很容易弄髒環境和產生一些靈異現象的 bug。於是我們在建制環境時，通常第一時間就會裝起 RVM。
 
@@ -107,11 +111,15 @@ $ source ~/.profile
 ~~~~~~~~~~~~~~~     
 
 
-#### 安裝 Ruby 1.9.3
+#### 安裝 Ruby 2.0
 
 ~~~~~~~~~~~~~~~ 
-$ rvm install 1.9.3
-$ rvm 1.9.3 --default 
+$ brew install libyaml
+$ rvm pkg install openssl
+$ rvm install 2.0.0 \ 
+    --with-openssl-dir=$HOME/.rvm/usr \
+    --verify-downloads 1
+$ rvm use 2.0.0    
 ~~~~~~~~~~~~~~~ 
 
 
@@ -126,7 +134,7 @@ I> 使用 RVM 安裝 gem 和 passenger-install-apache2-module 不需要加上 su
 ### 安裝必要 Ruby gems
 
 ~~~~~~~~~~~~~~~ 
-$ gem install rails
+$ gem install rails --version 4.0.0.beta1
 $ gem install mysql2
 $ gem install capistrano
 $ gem install capistrano-ext
@@ -202,6 +210,6 @@ I> 若電腦預設非使用系統 Ruby 的開發者需注意此點。Pow 很可�
 .rvmrc 內容如下：
 
 ~~~~~~~~~~~~~~~ 
-rvm 1.9.3
+rvm 2.0.0
 ~~~~~~~~~~~~~~~ 
 

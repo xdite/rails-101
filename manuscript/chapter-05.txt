@@ -1,0 +1,16 @@
+# 練習作業 5 - 每一篇文章可以上傳附件(圖片)
+
+
+## 作業目標
+
+發表文章時可以順便夾帶一張附件。
+
+## 吸收觀念
+
+[form_for](http://apidock.com/rails/ActionView/Helpers/FormHelper/form_for) multipart
+
+
+
+## 參考資料
+
+[paperclip](https://github.com/thoughtbot/paperclip/wiki)

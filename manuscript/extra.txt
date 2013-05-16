@@ -1,0 +1,13 @@
+# 附錄
+
+
+## Resources of latest Ruby
+
+* [Ruby5](http://ruby5.envylabs.com/) 
+* [Ruby Weekly](http://rubyweekly.com/) 
+* [Ruby Inside](http://www.rubyinside.com/)
+* [RubyFlow](http://www.rubyflow.com/)
+* [RubyRogues](http://rubyrogues.com/)
+* [Thoughtbot Podcast](http://learn.thoughtbot.com/podcast)
+* [Railscast](http://railscasts.com/)
+* [Confreaks](http://www.confreaks.com/)

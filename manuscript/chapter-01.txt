@@ -1,0 +1,22 @@
+# 練習作業 1 - 實作一個論壇
+
+
+## 作業目標
+
+開發一個簡易論壇系統。系統要有 Board 與 Post 兩個 model，寫出 CRUD 介面，並且文章網址是使用 <http://forum_demo.dev/board/1/post/2> 這種表示。
+
+## 吸收觀念
+
+* CRUD & migration
+* has_many 與 belongs_to
+* resources 與雙層 resources
+* before_filter :find_board
+
+=================
+參考資料
+=================
+
+* [深入淺出 RoR (4-3) – RESTful 與 CRUD action](http://rails.pixnet.net/blog/post/22956704)
+
+
+

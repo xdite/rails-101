@@ -1,0 +1,12 @@
+# 練習作業 4 - 為論壇加入分頁機制
+
+## 作業目標
+
+看板的文章要能夠分頁，每一頁 5 筆，每一個看板要秀出現在看板裡有多少 post 數量。可用 params 配合 scope 在文章列表排序。
+
+## 吸收觀念
+
+* [counter_cache](http://railscasts.com/episodes/23-counter-cache-column)
+* pagination
+* [scope](ttp://railscasts.com/episodes/108-named-scope)
+

@@ -1,0 +1,13 @@
+# 練習作業 0 - Hello World
+
+## 作業目標
+
+建立一個 Rails 專案，邁開第一步。
+
+## 吸收觀念
+
+建立一個 Rails 專案，實作第一個頁面。
+
+* [Bundler](http://gembundler.com/)
+* [Pow](http://pow.cx)
+* [Rails 目錄結構](http://ihower.tw/rails3/environment-and-bundler.html)

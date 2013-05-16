@@ -1,0 +1,100 @@
+# 推薦書單
+
+### 基礎
+
+如果你不懂任何 Ruby 或 Rails，你應該從這些 書 / 教材開始練習：
+
+* Code School [Try Ruby](http://www.codeschool.com/courses/try-ruby)
+* Code School [Try Git](http://www.codeschool.com/courses/try-git)
+* Code School [Git Real](http://www.codeschool.com/courses/git-real)
+* Peepcode [Meet Command Line](https://peepcode.com/screencasts)
+* Peepcode [Advanced Command Line](https://peepcode.com/products/advanced-command-line)
+* Zed Shaw [Learn Ruby The Hard Way](http://ruby.learncodethehardway.org/)
+
+### Learning Rails
+
+使用這些教材，寫出一個簡單 Application，例如一個小論壇...
+
+
+* Code School [Rails for Zombies Redux](http://www.codeschool.com/courses/rails-for-zombies-redux)
+* Code School [Rails for Zombies 2](http://www.codeschool.com/courses/rails-for-zombies-2)
+
+## 初階基礎網頁設計 
+
+* CodeSchool [jQuery Air: First Flight](http://www.codeschool.com/courses/jquery-air-first-flight)
+* CodeSchool [jQuery Air: Captain's Log](http://www.codeschool.com/courses/jquery-air-captains-log)
+* CodeSchool [CSS Cross-Country](http://www.codeschool.com/courses/css-cross-country)
+* Codecademy [Javascripts](http://www.codecademy.com/zh/tracks/javascript)
+
+## 初階 Ruby on Rails
+
+如果你不知道怎麼開始使用 TDD 寫程式，可以從這幾本書開始... 
+
+* Michael Hartl [Rails Turtorial](http://ruby.railstutorial.org/)
+* Ryan Bigg [Rails in Action 4](http://www.manning.com/bigg2/)
+
+UT on Rails is also a excellent learning material
+
+* Schneems [UT on Rails](http://schneems.com/ut-rails)
+
+## 測試 Testing
+
+* Code School [Rails testing for zombies](http://www.codeschool.com/courses/rails-testing-for-zombies)
+* Code School [Testing with Rspec](http://www.codeschool.com/courses/testing-with-rspec)
+* Noel Rappin [Rails Test Prescriptions: Keeping Your Application Healthy](http://pragprog.com/book/nrtest/rails-test-prescriptions)
+* Thougutbot [Learn Test-Driven Development using RSpec and Capybara.](https://learn.thoughtbot.com/workshops/18-test-driven-rails)
+
+## 進階基礎網頁設計 
+
+* Code School [Jounry into Mobile](http://www.codeschool.com/courses/journey-into-mobile)
+* Code School [The Anatomy of Backbone](http://www.codeschool.com/courses/anatomy-of-backbonejs)
+* Code School [CoffeeScript](http://www.codeschool.com/courses/coffeescript)
+* Code School [Assembling Sass](http://www.codeschool.com/courses/assembling-sass)
+* Code School [Assembling Sass Part2](http://www.codeschool.com/courses/assembling-sass)
+
+## 重構 Ruby / Rails code
+
+* Codschool [Rails Best Practices](http://www.codeschool.com/courses/rails-best-practices)
+* Chad Pytel / Tammer Saleh : [Rails Antipattern](http://railsantipatterns.com/)
+* John Athayde / Bruce Williamsp [The Rails View: Create a Beautiful and Maintainable User Experience](http://pragprog.com/book/warv/the-rails-view)
+* Eric Davis [Refacotoring Redmine](http://www.refactoringredmine.com/)
+* Code Climate [7 Patterns to Refactor Fat ActiveRecord Models](http://blog.codeclimate.com/blog/2012/10/17/7-ways-to-decompose-fat-activerecord-models/)
+
+
+## 寫出更漂亮的 Ruby code
+
+* Code School [Code Ruby Bits](http://www.codeschool.com/courses/ruby-bits)
+* Code School [Code Ruby Bits Part 2](http://www.codeschool.com/courses/ruby-bits-part-2)
+* David A. Black [The Well-Grounded Rubyist](http://www.manning.com/black2/)
+* Russ Olsen [Eloquent Ruby](http://www.amazon.com/Eloquent-Ruby-Addison-Wesley-Professional/dp/0321584104)
+* Avdi Grimm [Confident Ruby](http://devblog.avdi.org/2012/06/05/confident-ruby-beta/)
+* Avdi Grimm [Exceptional Ruby](http://exceptionalruby.com/)
+* Stefan Kaes [Writing Efficient Ruby Code (Digital Short Cut)](http://www.informit.com/store/writing-efficient-ruby-code-digital-short-cut-9780321540034)
+
+### Podcast / Journal of writing better Ruby/Rails code
+
+* [Ruby Tapas](http://devblog.avdi.org/rubytapas/)
+* [Destroy All Software](https://www.destroyallsoftware.com/screencasts)
+* [Practicing Ruby](https://practicingruby.com/)
+
+## Object-oriend Design in Ruby on Rails
+
+* thoughtbot [Ruby Science](https://learn.thoughtbot.com/products/13)
+* Avdi Grimm [Object on Rails](http://objectsonrails.com/)
+* Russ Olsen [Design Patterns in Ruby](http://www.amazon.com/Design-Patterns-Ruby-Russ-Olsen/dp/0321490452)
+* Jay fields [Refacoting : Ruby Edition](http://www.amazon.com/Design-Patterns-Ruby-Russ-Olsen/dp/0321490452)
+* Sandi Metz [Practical Object-Oriented Design in Ruby: An Agile Primer](http://www.amazon.com/dp/0321721330)
+
+## 如何更瞭解 Rails 底層
+
+* José Valim [Crafting Rails Applications: Expert Practices for Everyday Rails Development](http://pragprog.com/book/jvrails/crafting-rails-applications)
+* Marc-André Cournoyer [Owning Rails: The Rails Online Master Class](http://owningrails.com/)
+* Railscast [Rails Initialization Walkthrough](http://railscasts.com/episodes/299-rails-initialization-walkthrough)
+* Railscast [Rails Middleware Walkthrough](http://railscasts.com/episodes/319-rails-middleware-walkthrough)
+* Railscast [Rack App from Scratch](http://railscasts.com/episodes/317-rack-app-from-scratch)
+* Railscast [Rails Modularity](http://railscasts.com/episodes/349-rails-modularity)
+* Railscast [Hacking with Arel](http://railscasts.com/episodes/355-hacking-with-arel)
+* Railscast [Authorization from Scratch Part 1](http://railscasts.com/episodes/385-authorization-from-scratch-part-1)
+* Railscast [Authorization from Scratch Part 2](http://railscasts.com/episodes/386-authorization-from-scratch-part-2)
+* Railscast [Action Controller Walkthrough](http://railscasts.com/episodes/395-action-controller-walkthrough)
+* Railscast [Action View Walkthrough](http://railscasts.com/episodes/397-action-view-walkthrough)

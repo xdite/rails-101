@@ -1,0 +1,19 @@
+# 練習作業 2 - 為論壇加入使用者機制
+
+## 作業目標
+
+為論壇加入使用者機制，使用者必須能夠 註冊 / 登入，登入後才可以發表 Post，不然只能瀏覽。只有自己的 Post 才能進行修改與刪除。
+
+
+## 吸收觀念
+
+* plugin 安裝與使用
+* routes 優先權與 route alias
+* [before_filter]( http://apidock.com/rails/v2.3.8/ActionController/Filters/ClassMethods/before_filter) : login_required
+* session : current_user 
+
+
+## 參考資料
+
+* [devise](https://github.com/plataformatec/devise/wiki)
+
