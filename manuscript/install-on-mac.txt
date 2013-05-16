@@ -51,8 +51,8 @@ $ /usr/bin/ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
 $ brew install git
 $ brew update
 
-$brew tap homebrew/dupes
-$brew install apple-gcc42
+$ brew tap homebrew/dupes
+$ brew install apple-gcc42
 ~~~~~~~~~~~~~~~ 
 
 ### 安裝 XQuartz
@@ -62,12 +62,15 @@ $brew install apple-gcc42
 <http://xquartz.macosforge.org/landing>
 
 
+{::pagebreak :/}
+
+
 ###  ImageMagick / MySQL
 
 #### 安裝 Imagemagick
 
 ~~~~~~~~~~~~~~~ 
-    $ brew install imagemagick
+$ brew install imagemagick
 ~~~~~~~~~~~~~~~ 
 
 #### 安裝 MySQL
@@ -88,6 +91,9 @@ $ launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
 若無法順利進行安裝，可換下載 [MySQL官網](http://dev.mysql.com/downloads/mysql/) 上的 Mac OS X ver. 10.6 (x86, 64-bit), DMG Archive 來安裝 MySQL。
   
 
+{::pagebreak :/}
+
+
 ### 安裝 RVM 與 Ruby 1.9.3
 
 在建制 Rails 環境的時候，我們可能會有跑不同版本的 Ruby 或者不同的 getsemt 的需求。[Ruby Version Manager](https://rvm.beginrescueend.com/) 是一個能夠讓我們用很優雅的方式切換 Ruby 版本的工具。同時使用系統 Ruby，其實很容易弄髒環境和產生一些靈異現象的 bug。於是我們在建制環境時，通常第一時間就會裝起 RVM。
@@ -98,7 +104,9 @@ $ launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
 $ bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
 $ . ~/.profile
 $ source ~/.profile
-    
+~~~~~~~~~~~~~~~     
+
+
 #### 安裝 Ruby 1.9.3
 
 ~~~~~~~~~~~~~~~ 
@@ -106,9 +114,13 @@ $ rvm install 1.9.3
 $ rvm 1.9.3 --default 
 ~~~~~~~~~~~~~~~ 
 
-#### 注意
 
-使用 RVM 安裝 gem 和 passenger-install-apache2-module 不需要加上 sudo , 因為使用 sudo 會使用非 RVM 的 ruby 環境, 安裝目錄也不一樣.) 
+I>## 注意事項
+I>
+I> 使用 RVM 安裝 gem 和 passenger-install-apache2-module 不需要加上 sudo , 因為使用 sudo 會使用非 RVM 的 ruby 環境, 安裝目錄也不一樣.) 
+
+
+
     
 
 ### 安裝必要 Ruby gems
@@ -119,6 +131,9 @@ $ gem install mysql2
 $ gem install capistrano
 $ gem install capistrano-ext
 ~~~~~~~~~~~~~~~ 
+
+{::pagebreak :/}
+
 
 ### 設定 HTTP Server (使用 Pow)
 
@@ -155,9 +170,12 @@ $ ln -s ~/projects/wiki
 
 打開瀏覽器，輸入 http://wiki.dev 就完成了。以往的 http://localhost:3000/ 實在太噁心了，別再用它了！
 
-#### Note
+T> 小技巧
+T>
+T> 或者是直接在 project/wiki 下打 `powder link` 也可以。
 
-或者是直接在 project/wiki 下打 `powder link` 也可以。
+
+
 
 
 #### 使用 Powder 管理 Pow
@@ -174,9 +192,12 @@ $ gem install powder
 
 通常我只拿來做 `powder restart` 和 `powder log` 而已。
 
-##### 注意事項
+I>## 注意事項
+I>
+I> 若電腦預設非使用系統 Ruby 的開發者需注意此點。Pow 很可能會抓到系統 Ruby 及其  gemset 而無法啓動。我個人的解法是安裝 RVM 管控 Ruby，再在欲使用 Pow 之 project 目錄放置 .rvmrc 即可。
 
-若電腦預設非使用系統 Ruby 的開發者需注意此點。Pow 很可能會抓到系統 Ruby 及其  gemset 而無法啓動。我個人的解法是安裝 RVM 管控 Ruby，再在欲使用 Pow 之 project 目錄放置 .rvmrc 即可。
+
+
 
 .rvmrc 內容如下：
 

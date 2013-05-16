@@ -15,19 +15,20 @@ Codeshool 出了三套 Git 課程。請先練習過後，再開始學習 Rails �
 * GitReal2 <http://www.codeschool.com/courses/git-real-2> （進階技巧，可以之後再學）
 
 
-### 練習作業
+X>## 練習作業
+X>
+X> 1. 上 [Github](https://github.com) 註冊一個帳號
+X>
+X> 2. 練習以下 Git 指令
+X>
+X> * git commit 
+X> * git push 
+X> * git pull
+X> * git branch
+X> * git checkout
+X> * git merge
 
-1. 上 [Github](https://github.com) 註冊一個帳號
-
-2. 練習以下指令
-
-* git commit 
-* git push 
-* git pull
-* git branch
-* git checkout
-* git merge
-
+{::pagebreak :/}
 
 ## 編輯器學習資源
 
@@ -46,8 +47,10 @@ Codeshool 出了三套 Git 課程。請先練習過後，再開始學習 Rails �
 * PeepCode 的 [Meet the Command Line](http://peepcode.com/products/meet-the-command-line)
 * PeepCode 的 [Advanced Command Line](http://peepcode.com/products/advanced-command-line)
 
-### 練習作業
 
-* 練習 [Meet the Command Line](http://peepcode.com/products/meet-the-command-line)
-* 練習 [Advanced Command Line](http://peepcode.com/products/advanced-command-line)
+X>## 練習作業
+X>
+X> * 練習 [Meet the Command Line](http://peepcode.com/products/meet-the-command-line)
+X> * 練習 [Advanced Command Line](http://peepcode.com/products/advanced-command-line)
+
 
