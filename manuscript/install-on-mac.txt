@@ -192,7 +192,7 @@ $ gem install powder
 
 通常我只拿來做 `powder restart` 和 `powder log` 而已。
 
-I>## 注意事項
+I> ## 注意事項
 I>
 I> 若電腦預設非使用系統 Ruby 的開發者需注意此點。Pow 很可能會抓到系統 Ruby 及其  gemset 而無法啓動。我個人的解法是安裝 RVM 管控 Ruby，再在欲使用 Pow 之 project 目錄放置 .rvmrc 即可。
 
