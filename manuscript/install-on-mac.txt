@@ -44,16 +44,14 @@ Linux 使用者都會因為 package system maintainer 不是 Rails Developer 而
 
 ### 安裝 Homebrew
   
-```
-   $ /usr/bin/ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
-   $ brew install git
-   $ brew update
-```
+~~~~~~~~~~~~~~~ 
+$ /usr/bin/ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+$ brew install git
+$ brew update
 
-```
-brew tap homebrew/dupes
-brew install apple-gcc42
-```
+$brew tap homebrew/dupes
+$brew install apple-gcc42
+~~~~~~~~~~~~~~~ 
 
 ### 安裝 XQuartz
 
@@ -66,23 +64,24 @@ brew install apple-gcc42
 
 * 安裝 Imagemagick
 
-```
-   $ brew install imagemagick
-```
+~~~~~~~~~~~~~~~ 
+    $ brew install imagemagick
+~~~~~~~~~~~~~~~ 
 
 *  安裝 MySQL
 
-```
+~~~~~~~~~~~~~~~ 
+
 $ brew install mysql
 $ unset TMPDIR
-$ mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql --tmpdir=/tmp
+$ mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql --   tmpdir=/tmp
 $ mysql.server start
 $ mysqladmin -u root password '123456'
 $ mkdir -p ~/Library/LaunchAgents
 $ find /usr/local/Cellar/mysql/ -name "homebrew.mxcl.mysql.plist" -exec cp {} ~/Library/LaunchAgents/ \;
 $ launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
 
-```
+~~~~~~~~~~~~~~~ 
 
 若無法順利進行安裝，可換下載 [MySQL官網](http://dev.mysql.com/downloads/mysql/) 上的 Mac OS X ver. 10.6 (x86, 64-bit), DMG Archive 來安裝 MySQL。
   
@@ -93,19 +92,17 @@ $ launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
 
 #### 安裝 RVM
 
-```
+~~~~~~~~~~~~~~~ 
 $ bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
 $ . ~/.profile
 $ source ~/.profile
-```
     
 #### 安裝 Ruby 1.9.3
 
-```
+~~~~~~~~~~~~~~~ 
 $ rvm install 1.9.3
 $ rvm 1.9.3 --default 
-
-```
+~~~~~~~~~~~~~~~ 
 
 #### 注意
 
@@ -114,12 +111,12 @@ $ rvm 1.9.3 --default
 
 ### 安裝必要 Ruby gems
 
-```
+~~~~~~~~~~~~~~~ 
 $ gem install rails
 $ gem install mysql2
 $ gem install capistrano
 $ gem install capistrano-ext
-```
+~~~~~~~~~~~~~~~ 
 
 ### 設定 HTTP Server
 
@@ -138,9 +135,9 @@ Pow 的原理原理是攔截 routing，導到 Pow 上。所以新增 project 不
 
 [Pow](http://pow.cx) 的安裝相當簡單。
 
-```    
+~~~~~~~~~~~~~~~  
 $ curl get.pow.cx | sh
-```
+~~~~~~~~~~~~~~~ 
 
 即完成安裝。
 
@@ -168,7 +165,6 @@ $ curl get.pow.cx | sh
 因為 Pow 的管理有點不易，所有有人寫了這個工具把一些常用的功能包裝起來。
 
 安裝方法：
-
 
 `$ gem install powder`
 
