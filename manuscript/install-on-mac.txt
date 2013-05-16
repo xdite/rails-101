@@ -31,6 +31,8 @@ Linux 使用者都會因為 package system maintainer 不是 Rails Developer 而
 你都已經打算開始學習 Rails 改善你悲慘的開發人生了？為什麼不買一台 Mac 讓自己更節省力氣呢？
 
 
+{::pagebreak :/}
+
 ## Rails on Mac 安裝最佳實務
 
 
@@ -62,13 +64,13 @@ $brew install apple-gcc42
 
 ###  ImageMagick / MySQL
 
-* 安裝 Imagemagick
+#### 安裝 Imagemagick
 
 ~~~~~~~~~~~~~~~ 
     $ brew install imagemagick
 ~~~~~~~~~~~~~~~ 
 
-*  安裝 MySQL
+#### 安裝 MySQL
 
 ~~~~~~~~~~~~~~~ 
 
@@ -118,9 +120,7 @@ $ gem install capistrano
 $ gem install capistrano-ext
 ~~~~~~~~~~~~~~~ 
 
-### 設定 HTTP Server
-
-### 使用 Pow
+### 設定 HTTP Server (使用 Pow)
 
 #### 使用 Pow 作為 HTTP Server
 
@@ -148,8 +148,10 @@ $ curl get.pow.cx | sh
 
 因此若要讓 project 跑在 Pow 之下。以我的 wiki 為例 ：
 
-`cd ~/.pow/`
-`ln -s ~/projects/wiki`  
+~~~~~~~~~~~~~~~ 
+$ cd ~/.pow/
+$ ln -s ~/projects/wiki
+~~~~~~~~~~~~~~~ 
 
 打開瀏覽器，輸入 http://wiki.dev 就完成了。以往的 http://localhost:3000/ 實在太噁心了，別再用它了！
 
@@ -166,7 +168,9 @@ $ curl get.pow.cx | sh
 
 安裝方法：
 
-`$ gem install powder`
+~~~~~~~~~~~~~~~ 
+$ gem install powder
+~~~~~~~~~~~~~~~ 
 
 通常我只拿來做 `powder restart` 和 `powder log` 而已。
 
@@ -176,5 +180,7 @@ $ curl get.pow.cx | sh
 
 .rvmrc 內容如下：
 
-`rvm 1.9.3`
+~~~~~~~~~~~~~~~ 
+rvm 1.9.3
+~~~~~~~~~~~~~~~ 
 
