@@ -1,0 +1,53 @@
+# 學習 Rails 前置所需要的技能
+
+經過這些年的 Rails Developer 培訓之後，我強烈建議開始學習 Rails 之前，請先學會以下相關技能：
+
+* Git
+* 熟習 Vim 以及 SublimeText2 其中一種開發工具
+* 熟悉 Linux Command Line 的操作
+
+## Git 學習資源
+
+Codeshool 出了三套 Git 課程。請先練習過後，再開始學習 Rails 開發，我相當不建議讀者跳過 Git 技巧的練習。
+
+* TryGit <http://www.codeschool.com/courses/try-git>
+* GitReal <http://www.codeschool.com/courses/git-real>
+* GitReal2 <http://www.codeschool.com/courses/git-real-2> （進階技巧，可以之後再學）
+
+
+### 練習作業
+
+1. 上 [Github](https://github.com) 註冊一個帳號
+
+2. 練習以下指令
+
+* git commit 
+* git push 
+* git pull
+* git branch
+* git checkout
+* git merge
+
+
+## 編輯器學習資源
+
+### Vim
+
+* c9s 的 [Vim Hacks](http://c9s.blogspot.com/2009/08/vim-hacks-coscup.html) 是相當好的 vim 學習資源
+
+### Sublimtext 2 
+
+* Sunlimtext 2 下載網址: <http://www.sublimetext.com/2>
+
+* [Sublime Text 台灣](https://www.facebook.com/SublimeTextTW) 社群最近也撰寫了一本相當不錯的[SublimeText 學習手冊](http://docs.sublimetext.tw/) 
+
+## Linux Command Line 學習資源
+
+* PeepCode 的 [Meet the Command Line](http://peepcode.com/products/meet-the-command-line)
+* PeepCode 的 [Advanced Command Line](http://peepcode.com/products/advanced-command-line)
+
+### 練習作業
+
+* 練習 [Meet the Command Line](http://peepcode.com/products/meet-the-command-line)
+* 練習 [Advanced Command Line](http://peepcode.com/products/advanced-command-line)
+
