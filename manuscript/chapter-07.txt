@@ -1,16 +1,18 @@
-# 練習作業 7 - 將論壇 deploy 到租來的 VPS
+# 練習作業 7 - 將 Blog deploy 到租來的 VPS
 
 
 ## 作業目標
 
 在租來的 VPS 上面建置 Ruby on Rails production 環境，使用 Ruby Enterprise Edition 與 mod_rails。使用 [Capistrano](https://github.com/capistrano/capistrano/wiki) 佈署 application。
 
-## 吸收觀念
+## 練習主題
 
-* cap deploy:setup
-* cap deploy 
-* cap deploy:rollback 
-* cap deploy:restart
+* 學會如何自動部署專案
+* 使用 capistrano 自動部署專案
+* 操作 cap deploy:setup
+* 操作 cap deploy 
+* 操作 cap deploy:rollback 
+* 操作 cap deploy:restart
 
 
 ## 參考資料
@@ -19,3 +21,6 @@
 * [AWDR4](http://pragprog.com/titles/rails4/agile-web-development-with-rails) deploy 章節
 
 
+## 作業解答
+
+TODO

@@ -1,4 +1,5 @@
 preface.txt
+how-to-use.txt
 requirement.txt
 install-on-mac.txt
 chapter-00.txt

@@ -1,12 +1,19 @@
-# 練習作業 4 - 為論壇加入分頁機制
+# 練習作業 4 - 為文章列表加入分頁機制
 
 ## 作業目標
 
-看板的文章要能夠分頁，每一頁 5 筆，每一個看板要秀出現在看板裡有多少 post 數量。可用 params 配合 scope 在文章列表排序。
+* 文章列表要能夠分頁
+* 每一頁 5 筆
+* 每篇文章要秀出現在有多少 comment 數量
+* 文章列表的排序要以發表時間以 DESC 排序。
 
-## 吸收觀念
+## 練習主題
 
-* [counter_cache](http://railscasts.com/episodes/23-counter-cache-column)
-* pagination
-* [scope](ttp://railscasts.com/episodes/108-named-scope)
+* 使用 [counter_cache](http://railscasts.com/episodes/23-counter-cache-column) 取代直接對資料庫的 count 
+* 實作看板分頁（pagination）機制
+* 練習使用 scope 機制包裝不同 condition 的 SQL query
 
+
+## 作業解答
+
+TODO

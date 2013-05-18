@@ -6,8 +6,234 @@
 
 ## 吸收觀念
 
-建立一個 Rails 專案，實作第一個頁面。
+建立一個 Rails 專案，實作第一個頁面 Hello World。
 
 * [Bundler](http://gembundler.com/)
 * [Pow](http://pow.cx)
 * [Rails 目錄結構](http://ihower.tw/rails3/environment-and-bundler.html)
+
+{::pagebreak :/}
+
+
+## 作業解答
+
+打開 Terminal，在 ~/projects 下輸入指令，建立一個叫做 blog 的 Rails 專案
+
+~~~~~~~~
+rails new blog
+~~~~~~~~
+
+進入 blog 目錄
+
+~~~~~~~~
+$ cd blog
+~~~~~~~~
+
+此時， `rails new blog` 已經幫我們建立了一系列會用到的目錄檔案。
+
+
+{::pagebreak :/}
+
+
+### Bundler
+
+在這裡我們要先岔開話題，先介紹幾個工具，第一個是 [Bundler](http://gembundler.com/)。
+
+[Bundler](http://gembundler.com/) 是一套可以解決外部工具及其相依關係的好用工具，現在基本上所有以 Ruby 開發的工具，基本上都是使用這套工具管理專案上的套件相依關係。
+
+接下來，我們要先使用 Bundler 安裝這個專案會用到的套件。
+
+Bundler 依據 `Gemfile` 這個檔案安裝以及判斷套件相依性。你的 Rails 中的 Gemfile 內會是長這樣
+
+~~~~~~~~
+source 'https://rubygems.org'
+
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '4.0.0.beta1'
+
+gem 'sqlite3'
+
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  gem 'sass-rails',   '~> 4.0.0.beta1'
+  gem 'coffee-rails', '~> 4.0.0.beta1'
+
+  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+  # gem 'therubyracer', platforms: :ruby
+
+  gem 'uglifier', '>= 1.0.3'
+end
+
+gem 'jquery-rails'
+
+# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+gem 'turbolinks'
+
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jbuilder', '~> 1.0.1'
+~~~~~~~~
+
+I>## 常用 Bundler 指令：
+I>
+I> bundle check : 檢查此專案的套件是否漏失
+I>
+I> bundle install : 安裝此專案所需要的套件
+
+我們先會使用 `bundle install` 這個指令確定這個專案裡面，套件都被安裝了。（套件必須都被安裝，才能啓動專案。）
+
+
+
+{::pagebreak :/}
+
+### Pow
+
+下一個步驟是啓動專案，Rails 內建一個 Webserver，只要使用 `rails s` 就可以跑起來，這個專案會跑在 port 3000，打開 <http://localhost:3000> 就可以訪問。
+
+但是在這本書裡面，我們推薦另外一種方式掛起我們的開發版本網站：[Pow](http://pow.cx)。
+
+我們在上一章介紹過 Pow 這個軟體，使用 Pow 最大的好處是我們可以使用 <http://blog.dev> 這種網址掛起網站，而非使用 `rails s` 跑在 port 3000。
+
+使用 `rails s` 的壞處在於，如果你更改了什麼設定需要改變的話，你必須要要 `Ctrl-C` 終止這個指令，然後再重新啓動一次，這個過程十分緩慢。
+
+而使用 Pow，我們只要 `touch tmp/restart.txt` 就可以重啓 webserver，重新訪問被更新的網站了 。
+
+I>## 什麼時候需要重啓網站？
+I>
+I> 大多時候更改網站內容，不需要重開 Server。但是若更改 `config/routes.rb`、 `config/enviroments/*.rb` 、`config/database.yml` 等等的檔案，都需要重開 Server （終止 Ctrl-C 再 `rails s`）。
+
+
+### Pow 與 .rvmrc 與 .powrc
+
+我們推薦使用 `powder` 這個 gem 管理 Pow。安裝 powder 的方式是 `gem install powder`。我們可以用 `powder install` 這個指令把 Pow 裝起來。
+
+再使用 `powder link`，把這個專案掛起來。比如你的專案目錄夾是 `blog/`，在這個目錄打 `powder link`，則建立的連結關係就會是 <http://blog.dev/> 連結到 blog/ 這個專案。
+
+我們還要再作幾件事讓 <http://blog.dev/> 可以跑起來。
+
+第一件事是開一個空的新檔案 .rvmrc。在裡面置入：
+
+`rvm 2.0.0`
+
+第二件事是再開一個空的新檔案 .powrc。在裡面置入：
+
+~~~~~~~~
+if [ -f "$rvm_path/scripts/rvm" ] && [ -f ".rvmrc" ]; then
+  source "$rvm_path/scripts/rvm"
+  source ".rvmrc"
+fi
+~~~~~~~~
+
+這時候在終端機打 `powder open`，基本上應該就可以把專案開起來了。
+
+
+I>## 網站開不起來怎麼辦？
+I>
+I> 試試這幾個指令：
+I>
+I> rvm reload
+I>
+I> bundle install
+I>
+I> powder restart
+I>
+I> touch tmp/restart.txt
+I>
+
+
+### 監視 development.log
+
+`rails s` 的壞處是，只要設定檔案變更，就要結束掉重起。但它也有好處，就是可以直接看 Live Log，方便 Debug。那麼使用 Pow 之後，要怎麼樣繼續看 Log 去 debug 呢？
+
+答案是：使用 `tail -f log/development.log` 這個技巧，持續追蹤 Log。
+
+
+## 建立 Hello World 頁面
+
+當你首次打開 <http://blog.dev/> ，首先映入眼簾的會是這樣一個畫面。
+
+這是 Rails 預設的最初歡迎頁面。接下來我們要將根目錄顯示的預設畫面，換成自訂的頁面，顯示 "Hellow World"。
+
+而 Hello World 將會放在 pages 這個 controller 下的 wecleom 這個 action。
+
+
+### 步驟 1: 產生 pages controller
+
+
+    [~/projects/blog] (master) $ rails g controller pages
+      create  app/controllers/pages_controller.rb
+      invoke  erb
+      create    app/views/pages
+      invoke  test_unit
+      create    test/functional/pages_controller_test.rb
+      invoke  helper
+      create    app/helpers/pages_helper.rb
+      invoke    test_unit
+      create      test/unit/helpers/pages_helper_test.rb
+
+
+### 步驟 2: 建立 welcome action
+
+打開 app/controllers/pages_controller.rb，填入
+
+~~~~~~~~
+class PagesController < ApplicationController
+   def welcome
+   end
+end
+~~~~~~~~
+
+### 步驟 3: 建立 welcome 的 HTML view
+
+新增 app/views/pages/welcome.html.erb，填入
+
+~~~~~~~~
+    Hello World! 
+~~~~~~~~
+
+### 步驟 4 : 
+
+設定 config/routes.rb 將 root 設到 pages#welcome 上。
+
+~~~~~~~~
+    root :to => "pages#welcome"
+~~~~~~~~
+
+
+現在你可以成功的見到了 Hello World!
+
+[圖]
+[圖]
+
+## Rails 的 Routing
+
+Rails 的路徑，是透過 `config/routes.rb` 下的設定進行 mapping。
+
+常見出現的 routing 寫法，有以下幾種：
+
+```
+
+ get "subscriptions/new"
+
+ resources :posts do 
+   resources :comments
+ end
+
+ namespace :admin do 
+   resources :posts
+ end
+
+ match '/search' => "search#index", :as => "search"
+ root :to => "pages#welcome"
+
+```
+
+關於它們的作用，我們會在後面的章節進行解釋。
+
+
+
+
+
+
+
+
