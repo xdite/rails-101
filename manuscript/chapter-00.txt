@@ -147,12 +147,15 @@ I>
 
 答案是：使用 `tail -f log/development.log` 這個技巧，持續追蹤 Log。
 
+{::pagebreak :/}
 
 ## 建立 Hello World 頁面
 
-當你首次打開 <http://blog.dev/> ，首先映入眼簾的會是這樣一個畫面。
+當首次打開 <http://blog.dev/> ，映入眼簾的會是這樣一個畫面。
 
-這是 Rails 預設的最初歡迎頁面。接下來我們要將根目錄顯示的預設畫面，換成自訂的頁面，顯示 "Hellow World"。
+[圖]
+
+這是 Rails 預設的最初歡迎頁面。接下來我們要將根目錄顯示的預設畫面，換成自訂的頁面，顯示 "Hello World"。
 
 而 Hello World 將會放在 pages 這個 controller 下的 wecleom 這個 action。
 
@@ -203,6 +206,7 @@ end
 現在你可以成功的見到了 Hello World!
 
 [圖]
+
 [圖]
 
 ## Rails 的 Routing
@@ -211,7 +215,7 @@ Rails 的路徑，是透過 `config/routes.rb` 下的設定進行 mapping。
 
 常見出現的 routing 寫法，有以下幾種：
 
-```
+~~~~~~~~
 
  get "subscriptions/new"
 
@@ -226,10 +230,13 @@ Rails 的路徑，是透過 `config/routes.rb` 下的設定進行 mapping。
  match '/search' => "search#index", :as => "search"
  root :to => "pages#welcome"
 
-```
+~~~~~~~~
 
 關於它們的作用，我們會在後面的章節進行解釋。
 
+## FAQ:
+
+TODO
 
 
 
