@@ -1,6 +1,6 @@
 {::pagebreak :/}
  
-## Ch 1.1.4 建立 create 這個 action
+## Ch 1.1.4 建立 Groups Controller 裡的 create
 
 在 `app/controllers/groups_controller.rb` 加入 `create` 這個 action
 

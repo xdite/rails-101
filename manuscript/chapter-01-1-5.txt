@@ -1,6 +1,6 @@
 {::pagebreak :/}
  
-## Ch 1.1.5 建立 edit 這個 action
+## Ch 1.1.5 建立 Groups Controller 裡的 edit
 
 在 `app/controllers/groups_controller.rb` 加入 `edit` 這個 action
 

@@ -1,0 +1,13 @@
+# 作者介紹
+
+
+我是 [xdite](http://blog.xdite.net)。以 Ruby on Rails 撰寫網站已經累積接近 6 年的時間 ( Since 2007 )。
+
+我有一個以 Web 開發經驗為主的 blog [Blog.XDite.net](http://blog.xdite.net)，不定期會發表各式各類以 Rails 開發為主軸相關的文章。
+
+我曾經受邀至 Ruby Taiwan Conf、Ruby China Conf、Reddot Conf ( Singapore Ruby Conf ) 發表 Rails 開發相關的演說。
+
+我曾經以 Ruby on Rails 作為開發技術，奪得 [Facebook World Hack 2013 Global Grand Prize](http://paperclip.io/pages/about)。
+
+我現在在 [Rocodev](http://rocodev.com) 工作，這是我持有的軟體公司。
+

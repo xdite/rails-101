@@ -1,3 +1,4 @@
+about-author.txt
 preface.txt
 how-to-use.txt
 requirement.txt

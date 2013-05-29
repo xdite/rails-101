@@ -8,8 +8,8 @@
 
 如果你真的解不開這裡面的題目，我才希望你看解答。
 
-如果你再搞不懂，我們 host 了一個每週二舉辦的 Rails Meetup <http://www.meetup.com/taipei-rails-meetup/> ，歡迎帶著你手邊的問題來這裡問。
+如果你偏好當面問也住在台北，我們 host 了一個每週二舉辦的 Rails Meetup <http://www.meetup.com/taipei-rails-meetup/> ，歡迎帶著你手邊的問題來這裡問。這邊的同好對於新手都很友善，會十分樂於回答你的問題而已。
 
-這邊的同好對於新手都很友善，會十分樂於回答你的問題而已。(再找不到人，可以指名 co-organizer 小蟹 幫忙)
+如果你不住在台北，我開了一個線上討論區 <http://bumblr.io/groups/26>，這裡可以詢問本書相關的問題。
 
-（只有我很兇 XD，我比較偏好回答 Production 上的問題）
+發問請貼程式碼，可將程式碼貼在 [Gist](http://gist.github.com) 上，再轉貼到論壇上發問。

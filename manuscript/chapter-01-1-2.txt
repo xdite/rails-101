@@ -1,6 +1,6 @@
 {::pagebreak :/}
  
-## Ch 1.1.2 建立 show 這個 action
+## Ch 1.1.2 建立 Groups Controller 裡的 show
 
 在 `app/controllers/groups_controller.rb` 加入 `show` 這個 action
 
@@ -46,5 +46,5 @@ touch app/views/groups/show.html.erb
   def show
     @group = Group.find(params[:id])
   end
-  
+
 ~~~~~~~~
