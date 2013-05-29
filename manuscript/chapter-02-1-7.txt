@@ -1,0 +1,105 @@
+{::pagebreak :/}
+ 
+## Ch 2.1.7 以 before_action 整理重複的程式碼
+
+有沒有覺得 Posts 裡的每個 action 裡面都有一行
+
+~~~~~~~~
+    @group = Group.find(params[:group_id])
+~~~~~~~~
+
+很冗餘呢？
+
+我們可以利用 `before_action` 這個技巧，把重複的程式碼去掉：
+
+首先在 private 底下，新增一個 `find_group` method
+
+
+
+在 `app/controllers/groups_controller.rb` 加入 `destroy` 這個 action
+
+~~~~~~~~
+  def find_group
+    @group = Group.find(params[:group_id])
+  end
+~~~~~~~~
+
+然後在 `class PostsController < ApplicationController` 下，加一行
+
+~~~~~~~~
+  before_action :find_group
+~~~~~~~~
+
+再把每個 action 的這一行砍掉
+
+~~~~~~~~
+    @group = Group.find(params[:group_id])
+~~~~~~~~
+
+最後的成品會長這樣
+
+~~~~~~~~
+class PostsController < ApplicationController
+
+  before_action :find_group
+
+  def new
+    @post = @group.posts.build
+  end
+
+  def create
+
+    @post = @group.posts.new(post_params)
+
+    if @post.save 
+      redirect_to group_path(@group)
+    else
+      render :new
+    end
+  end
+
+  def edit
+    @post = @group.posts.find(params[:id])
+  end
+
+  def update
+
+    @post = @group.posts.find(params[:id])
+
+    if @post.update(post_params)
+      redirect_to group_path(@group)
+    else
+      render :edit
+    end
+  end
+
+
+  def destroy
+
+    @post = @group.posts.find(params[:id])
+
+    @post.destroy
+
+    redirect_to group_path(@group)
+  end
+
+
+  private
+
+
+  def find_group
+    @group = Group.find(params[:group_id])
+  end
+
+  def post_params
+    params.require(:post).permit(:content)
+  end
+end
+
+~~~~~~~~
+
+{::pagebreak :/}
+
+### 解說
+
+TODO
