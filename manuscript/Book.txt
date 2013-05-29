@@ -3,9 +3,10 @@ how-to-use.txt
 requirement.txt
 install-on-mac.txt
 chapter-00.txt
-chapter-01.txt
+chapter-01-0.txt
 chapter-01-1.txt
-chapter-01-ext.txt
+chapter-01-ext-01.txt
+chapter-01-ext-02.txt
 chapter-01-2.txt
 chapter-01-3..txt
 chapter-01-4.txt

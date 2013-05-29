@@ -1,0 +1,23 @@
+## 1.1 （補充） 建站懶人包 Boostrappers
+
+
+[Bootstrappers](https://github.com/xdite/bootstrappers) 是我在 2012 年開發的一個懶人架站機。
+
+它的特點是內建 [Boostrap](http://twitter.github.io/bootstrap/) 這個 Theme、一些常用熱門 Gem，還有一些 Rails Best Practice。可以讓你在寫網站的一剛開始就加速好幾倍...
+
+如果你想改用 `boostrappers` 生專案。
+
+### 安裝 boostrappers
+
+~~~~~~~~
+gem install bootstrappers 4.0.rc1
+~~~~~~~~
+
+### 用 boostrappers 建立新專案
+
+~~~~~~~~
+bootstrappers groupme
+~~~~~~~~
+
+
+我建議你用 Bootstrappers 重新建立一個專案，再循 Chapter 1.1 的方式，把 `groupme.dev` 用 Pow 掛起來，因為我們接下來都會以 boostrappers 生成的專案作為示範。

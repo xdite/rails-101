@@ -1,0 +1,86 @@
+## 1.1 （補充） CRUD 懶人大法 Scaffold
+
+Rails 裡面預設了相當 powerful 的一個指令： `scaffold`，字面上的意思是「鷹架」。
+
+懶得寫 Rails 程式碼嗎？使用 rails g scaffold [MODEL]，可以快速的產出 model 及其 controller 內的 CRUD action 與 view，快速的寫出網站程式。
+
+以下只是示範，請停住你的鍵盤不要跟著按。
+
+### scaffold 產生 Groups 與 Posts
+
+以 1.1 內的作業題目為例，其實你可以這樣進行快速解
+
+* Group 需要有名稱 name 與 description
+
+自動產生 group scaffold
+
+~~~~~~~~
+$ rails g scaffold grop title:string description:text
+~~~~~~~~
+
+
+* Post 需要有文章內容 content。
+
+自動產生 post scaffold
+
+~~~~~~~~
+$ rails g scaffold post content:text
+~~~~~~~~
+
+* 執行 db:migrate
+
+~~~~~~~~
+$ rake db:migrate
+~~~~~~~~
+
+~~~~~~~~
+[~/projects/groupmy] (master) $ rake db:migrate
+(in /Users/xdite/projects/groupmy)
+
+==  CreateGroups: migrating ===================================================
+-- create_table(:groups)
+   -> 0.0013s
+==  CreateGroups: migrated (0.0014s) ==========================================
+
+==  CreatePosts: migrating ====================================================
+-- create_table(:posts)
+   -> 0.0012s
+==  CreatePosts: migrated (0.0013s) ===========================================
+~~~~~~~~
+
+
+打開 <http://groupme.dev/groups>
+
+[圖]
+
+打開 <http://groupme.dev/posts/new>
+
+[圖]
+
+### Scaffold 作了哪些事？
+
+* 自動產生 groups 與 post 的 model 及其 migration
+* 自動產生 groups 與 posts 的 CRUD 之 controller / action / view
+* 自動在 config/routes 裡加上 resources :groups 與 resources :posts
+
+### What is 「db migration」? 
+
+在傳統開發 web 應用程式的流程中，開發者多半是使用 phpmyadmin 開設 db 欄位。因此在學習 Rails 之初，新手往往會提出一個好問題：為何在 Rails 內需要撰寫 db migration 檔？
+
+我來回答這個問題：理由是 db migration 是一個經過實證的 best practices。當多人同時在一個 project 內工作時，縱然程式碼可以受到版本控制，但是 db schema 卻可能是無法透過版本控制的一個隱憂。
+
+當多人都可以自由的刪改 db 欄位不受監督時，程式碼就無法與 db 欄位有著一致性，將會有出錯的可能性。
+
+為了 automation 以及也能對 db schema 做版本控制，所以才有了 db migration file 的設計。
+
+
+## 小結
+
+至此，我們擁有了 group 與 post 兩份的 CRUD。
+
+
+### 警告
+
+在新手的學習過程中，我並不推薦使用 `scaffold` 這個指令，因為 CRUD 及其背後 convention 的原理是基本中的基本，「應」熟練再熟練。寫個十幾遍都不為過，練到閉著眼睛都會寫才行。
+
+然而新手在練習作業中，很容易不小心就忘記 CRUD 的寫法。故此章先行提示 Rails 內建自動 CRUD 的指令 `scaffold`，但我建議日常開發中不要使用這個指令。
