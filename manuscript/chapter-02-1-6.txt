@@ -1,6 +1,6 @@
 {::pagebreak :/}
  
-## Ch 1.1.7 建立 Posts Controller 裡的 destroy
+## Ch 2.1.6 建立 Posts Controller 裡的 destroy
 
 在 `app/controllers/groups_controller.rb` 加入 `destroy` 這個 action
 
