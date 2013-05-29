@@ -1,0 +1,68 @@
+{::pagebreak :/}
+ 
+## Ch 1.1 (補充) RESTful
+
+
+Rails 在 1.2 版本的時候引進了 RESTful 這一套設計風格。而在 2.0 版強迫正式成為開發預設值。
+
+說到 RESTful，幾乎每個剛踏進 Rails 框架中的開發者都皺起眉頭。幾乎沒有人能夠在初學階段搞的懂這是什麼玩意。
+
+偏偏初學者往往有一個「死扣細節」的習慣：沒「弄懂」就「不敢用」，結果在第一個關卡挫折感就堆的如山高，把玩 RESTful 後打退堂鼓，從此放棄 Rails。
+
+### 想學 Rails 就先把 RESTful 背起來
+
+RESTful 是 Rails 裡面使用的最基礎最頻繁的一個設計手法，偏偏它也是最難一次講解清楚讓剛入門者理解的一個主題。因為在傳統 web 應用程式開發流程中，根本沒有這樣的概念。更別提在市面上這麼多網頁框架，只有 Rails 將之視為預設值。
+
+別說是初學者，就連筆者和一些 Rails 界的前輩，在 Rails 剛納入 RESTful 為預設風格時，也沒能通透其中原理。
+
+但是不熟練 RESTful 的開發架構，在開發 Rails 時幾乎會寸步難行。在訓練新 Developer 時如何讓他短時間就熟練便上手呢？
+
+方法很簡單：強迫他背起來，然後重複寫十遍。
+
+聽起來很唬爛，但其實真的紮紮實實寫過十遍以後。這時候再重新講解一次 RESTful 的概念，原本模糊的概念一下就變得豁然開朗了。
+
+{::pagebreak :/}
+
+### 初步熟悉使用 Rails RESTful
+
+#### 在 config/routes.rb 內加入 resources
+
+
+在 config/routes.rb 加入 `resources :groups`，就是具體在 rails 對一個 controller 實作 RESTful 的方式（對一個 controller 宣告成為 resources)。
+
+~~~~~~~~
+
+Groupme::Application.routes.draw do
+  resources :groups
+end
+
+~~~~~~~~
+
+這樣的宣告將在自動對應 URL路徑跟 Controller 的 action ，而有以下的結果：
+
+| GET: /groups => |[:action => 'index']|
+| GET: /groups.xml => |[:action => 'index', :format => 'xml']|
+| GET: /groups/1 => |[:action => 'show', :id => 1]|
+| GET: /groups/1/edit =>| [:action => 'edit', :id => 1]|
+| GET: /groups/1.xml => |[:action => 'show', :id => 1, :format => 'xml']|
+| group: /groups => |[:action => 'create']|
+| PUT: /groups/1 => |[:action => 'update', :id => 1]|
+| DELETE: /groups/1 => |[:action => 'destroy', :id => 1]|
+
+
+並產生了一套 url helpers 給 View 使用。
+
+
+
+|helpers            | HTTP Verb | PATH           | Action|
+|-------------------|-----------|----------------|-----|
+|groups_path         |   GET     | `/groups`       | index|
+|group_path(id)      |   GET     | `/groups/1`     | show|
+|new_group_path      |   GET     | `/groups/new`   | new|
+|groups_path         |   group    | `/groups`       | create|
+|edit_group_path(id) |   GET     | `/groups/1/edit`| edit|
+|bloh_path(id)      |   PUT     | `/groups/1`     | update |
+|group_path(id)      |   DELETE  | `/groups/1`     | destroy|
+
+
+

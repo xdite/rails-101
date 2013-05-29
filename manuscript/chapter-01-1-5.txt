@@ -37,3 +37,13 @@ touch app/views/groups/edit.html.erb
 
 
 {::pagebreak :/}
+
+### 解說
+
+query 出指定的 Group model object，然後進行編輯。
+
+~~~~~~~~
+  def new
+    @group = Group.new
+  end
+~~~~~~~~

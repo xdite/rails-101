@@ -35,3 +35,16 @@ touch app/views/groups/show.html.erb
 ~~~~~~~~
 
 {::pagebreak :/}
+
+### 解說
+
+
+秀出單筆資料。 Group.find(123) 是指找 Post model 裡 id 為 123 的資料。http://groupme.dev/groups/123 的 groups 是 controller、show 是 action；如果在 route 裡面沒有特別指定，則 123 通常就是 params[:id] 。
+
+~~~~~~~~
+
+  def show
+    @group = Group.find(params[:id])
+  end
+  
+~~~~~~~~

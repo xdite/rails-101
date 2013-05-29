@@ -35,4 +35,15 @@ touch app/views/groups/new.html.erb
 
 ~~~~~~~~
 
+{::pagebreak :/}
 
+
+### 解說
+
+initial 一個新的 Post object。 
+
+~~~~~~~~
+  def new
+    @group = Group.new
+  end
+~~~~~~~~

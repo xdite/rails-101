@@ -16,3 +16,9 @@
 
 
 至此，我們完成了 Group 的 CRUD。
+
+### 把首頁改成 Group 的 Index 頁
+
+最後修改 `config/routes.rb`，把 root 指向 group 的 index 頁 
+
+`root :to => "groups#index"`

@@ -58,3 +58,41 @@ end
 
 ~~~~~~~~
 
+
+
+{::pagebreak :/}
+
+
+### 解說
+
+~~~~~~~~
+  def create
+    @group = Group.new(params[:group])
+    @group.save
+
+    redirect_to groups_path
+  end
+~~~~~~~~
+
+這邊要搭配 `app/views/groups/new.html.erb` 這個 view 並列一起看。
+
+~~~~~~~~
+
+
+<div class="span12">
+
+ <%= simple_form_for @group  do |f| %>
+    <%= f.input :title, :input_html => { :class => "input-xxlarge"} %>
+    <%= f.input :description, :input_html => { :class => "input-xxlarge"} %>
+    
+    <div class="form-actions">   
+       <%= f.submit "Submit", :disable_with => 'Submiting...', :class => "btn btn-primary" %>
+    </div>
+  <% end %>
+
+</div>
+
+~~~~~~~~
+
+
+在 RESTful Rails 的寫法中，對 `groups_path` 丟 POST 就是對應到 create 的動作。而 Rails 在設計上，form 是綁 model 的，因此整個 form 的內容會被包成一個 hash，在這裡就是 params[:group]。create action 初始一個 object ，並把 params[:group] 整包塞進這個 object 裡。如果 @group 能夠成功的儲存，就「重導」到 index action ，失敗則「退回」到 new action 。

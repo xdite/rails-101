@@ -54,6 +54,19 @@ end
 {::pagebreak :/}
 
 
+### 解說
+
+
+通常會放置列表。因此 Group.all 是拉出 group 這個 model 所有的資料。
+
+~~~~~~~~
+
+  def index
+    @groups = Group.all
+  end
+
+~~~~~~~~
+
 
 
 
