@@ -1,26 +1,23 @@
-# 練習作業 2 - 為 Group 加入使用者機制
-
-## 作業目標
-
-為討論區加入使用者機制，使用者必須能夠 註冊 / 登入，登入後才可以發表 Post，不然只能瀏覽。只有自己的 Post 才能進行修改與刪除。
+# 練習作業 2 - 在 Group 裡面發表文章 - 雙層 RESTFul
 
 
-## 練習主題
+### 作業目標 : 實作一個 討論區
 
-* gem / plugin 安裝與使用
-* routes 優先權與 route alias
-* [before_filter](http://apidock.com/rails/v2.3.8/ActionController/Filters/ClassMethods/before_filter) 的使用及其效果
-* 利用 before_filter : login_required 加入登入判斷
-* 為 controller 中部分 action 加上 login_required
-* session 的使用：current_user
+本書的練習專案會是一個以 Group 為主的討論區
 
+* 使用者可以建立、管理 Group。
+* 使用者可以加入、退出社團。
+* 使用者加入此社團後可以發表文章
+* 使用者加入此社團後可以回覆他人文章
 
-
-## 參考資料
-
-* [devise](https://github.com/plataformatec/devise/wiki)
+開發一個簡易社群討論系統。系統要有 Group 與 Post 兩個 model，寫出 CRUD 介面，並且文章網址是使用 <http://groupme.dev/group/1/post/2> 這種表示。
 
 
-## 作業解答
+### 本章練習主題
 
-TODO
+* 學會 has_many, belongs_to
+* 學會 resources 的設定 （ 雙層 resources )
+* 使用 before_action 整理程式碼
+
+
+
