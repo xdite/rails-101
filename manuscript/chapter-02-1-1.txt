@@ -1,0 +1,67 @@
+{::pagebreak :/}
+ 
+## Ch 2.1.1 Groups controller 的 show 裡面撈出相關的 Post
+
+到 `app/controllers/groups_controller.rb`，將 show 修改成以下內容
+
+~~~~~~~~~
+def show
+  @group = Group.params[:id]
+  @posts = @group.posts
+end
+
+~~~~~~~~~
+
+{::pagebreak :/}
+
+#### 補上 view： 
+
+修改 `app/views/groups/show.html.erb`
+
+~~~~~~~~
+
+<div class="span12">
+  <div class="group pull-right">
+    <%= link_to("Edit", edit_group_path(@group) , :class => "btn btn-mini ")%> 
+
+    <%= link_to("New Post", new_group_post_path(@group) , :class => "btn btn-mini btn-primary")%>
+        &nbsp;
+  </div>
+  <h2> <%= @group.title %> </h2>
+  <p> <%= @group.description %> </p> 
+
+
+  <table class="table">
+
+  <tbody>
+    <% @posts.each do |post| %> 
+    <tr>
+      <td> <%= post.content %> </td>
+      <td> <%= link_to("Edit", edit_group_post_path(post.group, post), :class => "btn btn-mini")%>
+        <%= link_to("Delete", group_post_path(post.group, post), :class => "btn btn-mini", :methpd => :delete, :confirm => "Are you sure?" ) %> </td>
+      </tr>
+      <% end %> 
+    </tbody>
+  </table>
+</div>
+
+
+~~~~~~~~
+
+
+
+{::pagebreak :/}
+
+
+### 解說
+
+TODO
+
+
+
+
+
+
+
+
+

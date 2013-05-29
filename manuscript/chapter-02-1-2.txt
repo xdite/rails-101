@@ -1,0 +1,43 @@
+{::pagebreak :/}
+ 
+## Ch 2.1.2 建立 Posts Controller 裡的 new
+
+在 `app/controllers/posts_controller.rb` 加入 `new` 這個 action
+
+~~~~~~~~
+  def new
+    @group = Group.find(params[:group_id])
+    @post = @group.posts.build
+  end
+~~~~~~~~
+
+
+### 補上 view
+
+`touch app/views/posts/new.html.erb`
+
+加入
+
+~~~~~~~~
+
+
+<div class="span12">
+
+ <%= simple_form_for [@group,@post]  do |f| %>
+    <%= f.input :content, :input_html => { :class => "input-xxlarge"} %>
+    
+    <div class="form-actions">   
+       <%= f.submit "Submit", :disable_with => 'Submiting...', :class => "btn btn-primary" %>
+    </div>
+  <% end %>
+
+</div>
+
+~~~~~~~~
+
+{::pagebreak :/}
+
+
+### 解說
+
+TODO

@@ -1,0 +1,98 @@
+{::pagebreak :/}
+ 
+## Ch 2.1 建立 Post
+
+### 建立 Post 這個 model
+
+執行
+
+`rails g model post content:text group_id:integer`
+
+~~~~~~~~
+      invoke  active_record
+      create    db/migrate/20130529200707_create_posts.rb
+      create    app/models/post.rb
+      invoke    test_unit
+      create      test/models/post_test.rb
+      create      test/fixtures/posts.yml
+~~~~~~~~
+
+生成 Post 這個 model。
+
+然後跑 `rake db:migrate`。
+
+~~~~~~~~
+==  CreatePosts: migrating ====================================================
+-- create_table(:posts)
+   -> 0.1297s
+==  CreatePosts: migrated (0.1298s) ===========================================
+~~~~~~~~
+
+
+{::pagebreak :/}
+
+### 建立 posts 這個 controller
+
+執行 `rails g controller posts`
+
+~~~~~~~~
+      create  app/controllers/posts_controller.rb
+      invoke  erb
+      create    app/views/posts
+      invoke  test_unit
+      create    test/controllers/posts_controller_test.rb
+      invoke  helper
+      create    app/helpers/posts_helper.rb
+      invoke    test_unit
+      create      test/helpers/posts_helper_test.rb
+      invoke  assets
+      invoke    coffee
+      create      app/assets/javascripts/posts.js.coffee
+      invoke    scss
+      create      app/assets/stylesheets/posts.css.scss
+~~~~~~~~      
+
+
+### 把 posts 加入 routing
+
+到 `config/routes.rb` 修改原有的
+
+~~~~~~~~~
+  resources :groups
+~~~~~~~~~
+
+變成
+
+
+~~~~~~~~~
+  resources :groups do 
+    resources :posts
+  end
+~~~~~~~~~
+
+{::pagebreak :/}
+
+
+### 加入 Group 與 Post 的關聯
+
+修改 `app/models/group.rb` 加入 `has_many :posts`
+
+~~~~~~~~~
+class Group < ActiveRecord::Base
+
+  has_many :posts
+  validates :title, :presence => true
+
+end
+~~~~~~~~~
+
+修改 `app/models/post.rb` 加入 `belongs_to :post`
+
+~~~~~~~~~
+class Post < ActiveRecord::Base
+  belongs_to :group
+end
+
+~~~~~~~~~
+
+
