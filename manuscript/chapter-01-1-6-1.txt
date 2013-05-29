@@ -1,0 +1,5 @@
+{::pagebreak :/}
+ 
+## Ch 1.1.6 (補充) update_attributes 與 update
+
+TODO

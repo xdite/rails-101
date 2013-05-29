@@ -20,7 +20,7 @@
   def group_params
     params.require(:group).permit(:title, :description)
   end
-  
+
 ~~~~~~~~
 
 不過此時，我們發現好像少了一種實際狀況？如果一個 Group 沒有 title，應該算是不合法的 group 吧？
@@ -33,7 +33,6 @@
 ~~~~~~~~
 
 class Group < ActiveRecord::Base
-  attr_accessible :description, :title
 
   validates :title, :presence => true
   

@@ -1,6 +1,6 @@
 {::pagebreak :/}
  
-## Ch 1.1.6 建立 updated 這個 action
+## Ch 1.1.6 建立 update 這個 action
 
 編輯 `spec/controllers/groups_controller_spec.rb`，加入另一段 Test。
 

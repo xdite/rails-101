@@ -1,0 +1,6 @@
+{::pagebreak :/}
+ 
+## Ch 1.1.4 (補充) Strong Parameters
+
+TODO
+
