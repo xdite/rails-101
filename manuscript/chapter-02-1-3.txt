@@ -1,8 +1,8 @@
 {::pagebreak :/}
  
-## Ch 1.1.4 建立 Posts Controller 裡的 create
+## Ch 2.1.3 建立 Posts Controller 裡的 create
 
-在 `app/controllers/groups_controller.rb` 加入 `create` 這個 action
+在 `app/controllers/posts_controller.rb` 加入 `create` 這個 action
 
 ~~~~~~~~
 
