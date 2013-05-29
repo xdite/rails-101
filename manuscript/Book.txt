@@ -22,6 +22,8 @@ chapter-02.txt
 chapter-02-1.txt
 chapter-02-1-0.txt
 chapter-02-1-1.txt
+chapter-02-1-2.txt
+chapter-02-1-3.txt
 chapter-02-2.txt
 chapter-02-3.txt
 chapter-03.txt

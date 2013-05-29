@@ -1,0 +1,53 @@
+{::pagebreak :/}
+ 
+## Ch 1.1.4 建立 Posts Controller 裡的 create
+
+在 `app/controllers/groups_controller.rb` 加入 `create` 這個 action
+
+~~~~~~~~
+
+  def create
+    @group = Group.find(params[:group_id])
+    @post = @group.posts.new(post_params)
+
+    if @post.save 
+      redirect_to group_path(@group)
+    else
+      render :new
+    end
+  end
+
+  private
+
+
+  def post_params
+    params.require(:post).permit(:content)
+  end
+
+~~~~~~~~
+
+不過此時，我們發現 Post 其實也需要被驗證。如果一個 Post 沒有 content，應該也算是不合法的 post？
+
+我們應該要限制沒有輸入 content 的 post，必須要退回到 `new` 這個表單。
+
+
+修改 `app/models/post.rb`，限制 post 一定要有內容
+
+~~~~~~~~
+
+class Post < ActiveRecord::Base
+
+  belongs_to :group
+  validates :content, :presence => true
+  
+end
+
+~~~~~~~~
+
+
+{::pagebreak :/}
+
+
+### 解說
+
+TODO

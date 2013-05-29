@@ -20,7 +20,6 @@
 
 ~~~~~~~~
 
-
 <div class="span12">
 
  <%= simple_form_for [@group,@post]  do |f| %>
