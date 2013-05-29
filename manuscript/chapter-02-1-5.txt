@@ -1,0 +1,23 @@
+{::pagebreak :/}
+ 
+## Ch 2.1.5 建立 Posts Controller 裡的 update
+
+
+在 `app/controllers/postss_controller.rb` 加入 `update` 這個 action
+
+~~~~~~~~
+  def update
+    @group = Group.find(params[:group_id])
+    @post = @group.posts.find(params[:id])
+
+    if @post.update(post_params)
+      redirect_to group_path(@group)
+    else
+      render :edit
+    end
+  end
+~~~~~~~~
+
+### 解說
+
+TODO

@@ -6,9 +6,10 @@
 
 ~~~~~~~~
   def edit
-    @group = Group.find(params[:id])
-    @post = @group.posts.find(pramas[:id])
+    @group = Group.find(params[:group_id])
+    @post = @group.posts.find(params[:id])
   end
+
 ~~~~~~~~
 
 
