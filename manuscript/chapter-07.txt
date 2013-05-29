@@ -1,4 +1,4 @@
-# 練習作業 7 - 將 Blog deploy 到租來的 VPS
+# 練習作業 7 - 將 Groupme deploy 到租來的 VPS
 
 
 ## 作業目標

@@ -1,4 +1,6 @@
-## 1.1 （補充） CRUD 懶人大法 Scaffold
+{::pagebreak :/}
+
+## Ch 1.0 （補充） CRUD 懶人大法 Scaffold
 
 Rails 裡面預設了相當 powerful 的一個指令： `scaffold`，字面上的意思是「鷹架」。
 
@@ -15,7 +17,7 @@ Rails 裡面預設了相當 powerful 的一個指令： `scaffold`，字面上�
 自動產生 group scaffold
 
 ~~~~~~~~
-$ rails g scaffold grop title:string description:text
+$ rails g scaffold group title:string description:text
 ~~~~~~~~
 
 
@@ -74,7 +76,7 @@ $ rake db:migrate
 為了 automation 以及也能對 db schema 做版本控制，所以才有了 db migration file 的設計。
 
 
-## 小結
+### 小結
 
 至此，我們擁有了 group 與 post 兩份的 CRUD。
 

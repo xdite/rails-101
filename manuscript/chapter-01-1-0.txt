@@ -1,0 +1,64 @@
+{::pagebreak :/}
+ 
+## Ch 1.1 建立 Group
+
+### 建立 Group 這個 model
+
+執行
+
+`rails g model group title:string description:text`
+
+~~~~~~~~
+      invoke  active_record
+      create    db/migrate/20130529180541_create_groups.rb
+      create    app/models/group.rb
+      invoke    test_unit
+      create      test/models/group_test.rb
+      create      test/fixtures/groups.yml
+~~~~~~~~
+
+生成 Group 這個 model。
+
+然後跑 `rake db:migrate`。
+
+~~~~~~~~
+==  CreateGroups: migrating ===================================================
+-- create_table(:groups)
+   -> 0.1951s
+==  CreateGroups: migrated (0.1952s) ==========================================
+~~~~~~~~
+
+
+{::pagebreak :/}
+
+### 建立 groups 這個 controller
+
+執行 `rails g controller groups`
+
+~~~~~~~~
+
+      create  app/controllers/groups_controller.rb
+      invoke  erb
+      create    app/views/groups
+      invoke  test_unit
+      create    test/controllers/groups_controller_test.rb
+      invoke  helper
+      create    app/helpers/groups_helper.rb
+      invoke    test_unit
+      create      test/helpers/groups_helper_test.rb
+      invoke  assets
+      invoke    coffee
+      create      app/assets/javascripts/groups.js.coffee
+      invoke    scss
+      create      app/assets/stylesheets/groups.css.scss
+~~~~~~~~      
+
+
+### 把 groups 加入 routing
+
+到 `config/routes.rb` 加入
+
+~~~~~~~~~
+resources :groups
+~~~~~~~~~
+

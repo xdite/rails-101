@@ -1,4 +1,4 @@
-# 練習作業3 - 為 Blog 加入管理者機制以及管理者後台
+# 練習作業3 - 為 Group 加入管理者機制以及管理者後台
 
 ## 作業目標
 
@@ -7,7 +7,7 @@
 
 * admin 擁有一個後台，可以刪改所有文章。
 * admin 可以新增文章 / 刪除文章
-* 網址是 http://blog.dev/admin/posts
+* 網址是 http://groupme.dev/admin/posts
 * 有身分是 admin 的人可以進後台。
 * admin 的判別方是 column 裡加一個 boolean，判斷是否 admin。
 * 這個 attribute 必須用 attr_accessible / attr_protected 保護。

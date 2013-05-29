@@ -1,0 +1,38 @@
+{::pagebreak :/}
+ 
+## Ch 1.1.3 建立 new 這個 action
+
+在 `app/controllers/groups_controller.rb` 加入 `new` 這個 action
+
+~~~~~~~~
+  def new
+    @group = Group.new
+  end
+~~~~~~~~
+
+
+### 補上 view
+
+touch app/views/groups/new.html.erb
+
+加入
+
+~~~~~~~~
+
+
+<div class="span12">
+
+ <%= simple_form_for @group  do |f| %>
+    <%= f.input :title, :input_html => { :class => "input-xxlarge"} %>
+    <%= f.input :description, :input_html => { :class => "input-xxlarge"} %>
+    
+    <div class="form-actions">   
+       <%= f.submit "Submit", :disable_with => 'Submiting...', :class => "btn btn-primary" %>
+    </div>
+  <% end %>
+
+</div>
+
+~~~~~~~~
+
+

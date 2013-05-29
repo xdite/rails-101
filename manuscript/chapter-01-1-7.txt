@@ -1,0 +1,18 @@
+{::pagebreak :/}
+ 
+## Ch 1.1.7 建立 destroy 這個 action
+
+在 `app/controllers/groups_controller.rb` 加入 `destroy` 這個 action
+
+~~~~~~~~
+  def destroy
+    @group = Group.find(params[:id])
+
+    @group.destroy
+
+    redirect_to groups_path
+  end
+~~~~~~~~
+
+
+至此，我們完成了 Group 的 CRUD。

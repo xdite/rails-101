@@ -1,0 +1,61 @@
+{::pagebreak :/}
+ 
+## Ch 1.1.4 建立 create 這個 action
+
+在 `app/controllers/groups_controller.rb` 加入 `create` 這個 action
+
+~~~~~~~~
+  def create
+    @group = Group.new(params[:group])
+    @group.save
+
+    redirect_to groups_path
+  end
+
+
+
+  private
+
+
+  def group_params
+    params.require(:group).permit(:title, :description)
+  end
+  
+~~~~~~~~
+
+不過此時，我們發現好像少了一種實際狀況？如果一個 Group 沒有 title，應該算是不合法的 group 吧？
+
+我們應該要限制沒有輸入 title 的 group，必須要退回到 `new` 這個表單。
+
+
+修改 `app/models/group.rb`，限制 group 一定要有標題
+
+~~~~~~~~
+
+class Group < ActiveRecord::Base
+  attr_accessible :description, :title
+
+  validates :title, :presence => true
+  
+end
+
+~~~~~~~~
+
+同時修改 `app/controllers/groups_controller.rb` 中 `create` 這個 action
+
+改成以下內容
+
+~~~~~~~~
+
+  def create
+    @group = Group.new(params[:group])
+
+    if @group.save
+      redirect_to groups_path
+    else
+      render :new
+    end
+  end
+
+~~~~~~~~
+

@@ -1,0 +1,21 @@
+{::pagebreak :/}
+ 
+## Ch 1.1.6 建立 updated 這個 action
+
+編輯 `spec/controllers/groups_controller_spec.rb`，加入另一段 Test。
+
+在 `app/controllers/groups_controller.rb` 加入 `update` 這個 action
+
+~~~~~~~~
+  def update
+    @group = Group.find(params[:id])
+
+    if @group.update(group_params)
+      redirect_to group_path(@group)
+    else
+      render :edit
+    end
+  end
+~~~~~~~~
+
+至此，我們完成了 Group 的 CRUD。

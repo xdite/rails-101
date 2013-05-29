@@ -1,0 +1,65 @@
+{::pagebreak :/}
+ 
+## Ch 1.1.1 建立 index 這個 action
+
+到 `app/controllers/groups_controller.rb` 加入
+
+~~~~~~~~~
+def index
+  @groups = Group.all
+end
+
+~~~~~~~~~
+
+{::pagebreak :/}
+
+#### 補上 view： 
+
+`touch app/views/groups/index.html.erb`
+
+~~~~~~~~
+
+<div class="span12">
+  <div class="group">
+    <%= link_to("New group", new_group_path , :class => "btn btn-mini btn-primary pull-right" ) %> 
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <td> # </td>
+        <td> Title </td>
+        <td> Descroption </td>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @groups.each do |group| %>
+      <tr>
+        <td> # </td>
+        <td> <%= link_to(group.title, group_path(group)) %>  </td>
+        <td> <%= group.description %>  </td>
+        <td> <%= link_to("Edit", edit_group_path(group), :class => "btn btn-mini" ) %> 
+         <%= link_to("Delete", group_path(group), :class => "btn btn-mini", :methpd => :delete, :confirm => "Are you sure?" ) %> 
+       </td>
+     </tr>
+     <% end %>
+   </tbody>
+ </table>
+
+</div>
+~~~~~~~~
+
+
+
+{::pagebreak :/}
+
+
+
+
+
+
+
+
+
+
+
