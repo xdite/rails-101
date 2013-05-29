@@ -65,15 +65,6 @@ end
 
 ### 解說
 
-~~~~~~~~
-  def create
-    @group = Group.new(params[:group])
-    @group.save
-
-    redirect_to groups_path
-  end
-~~~~~~~~
-
 這邊要搭配 `app/views/groups/new.html.erb` 這個 view 並列一起看。
 
 ~~~~~~~~

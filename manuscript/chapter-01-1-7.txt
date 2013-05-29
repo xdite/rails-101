@@ -22,3 +22,26 @@
 最後修改 `config/routes.rb`，把 root 指向 group 的 index 頁 
 
 `root :to => "groups#index"`
+
+
+{::pagebreak :/}
+
+### 解說
+
+
+這邊要翻回 app/views/posts/index.html.erb 這個 view  一起來看。
+
+~~~~~~~~
+
+      <tr>
+        <td> # </td>
+        <td> <%= link_to(group.title, group_path(group)) %>  </td>
+        <td> <%= group.description %>  </td>
+        <td> <%= link_to("Edit", edit_group_path(group), :class => "btn btn-mini" ) %> 
+         <%= link_to("Delete", group_path(group), :class => "btn btn-mini", :methpd => :delete, :confirm => "Are you sure?" ) %> 
+       </td>
+     </tr>
+~~~~~~~~     
+
+
+找到該筆資料並刪除之。在 RESTful Rails 的寫法中，對 `group_path` 丟一個 DELETE，就會對應到 destroy 的動作。可看一下 `link_to "Destroy"`那一行。
