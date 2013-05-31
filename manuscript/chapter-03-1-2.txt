@@ -29,11 +29,7 @@ end
 ~~~~~~~~~
 
 
-修改 `app/models/user.rb` 加入
-
-~~~~~~~~~
-has_many :groups
-~~~~~~~~~
+修改 `app/models/user.rb` 加入 `has_many :groups`
 
 內容如下
 
@@ -54,16 +50,16 @@ class User < ActiveRecord::Base
 end
 ~~~~~~~~~
 
+{::pagebreak :/}
+
 修改 `app/models/group.rb` 加入
 
 ~~~~~~~~~
   belongs_to :owner, :class_name => "User", :foreign_key => :user_id
 
-
   def editable_by?(user)
     user && user == owner
   end
-
 ~~~~~~~~~
 
 
@@ -85,6 +81,8 @@ end
 
 
 ~~~~~~~~~
+
+{::pagebreak :/}
 
 接著我們要把 Groups 的幾個 action 內容替換掉：
 
@@ -138,6 +136,8 @@ end
   end
 ~~~~~~~~~
 
+{::pagebreak :/}
+
 把 app/views/groups/index.html.erb 的內容換掉
 
 ~~~~~~~~~
@@ -172,6 +172,8 @@ end
 </div>
 
 ~~~~~~~~~
+
+{::pagebreak :/}
 
 ### 解說 
 

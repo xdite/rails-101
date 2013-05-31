@@ -43,7 +43,7 @@ touch app/views/groups/edit.html.erb
 query 出指定的 Group model object，然後進行編輯。
 
 ~~~~~~~~
-  def new
-    @group = Group.new
+  def edit
+    @group = Group.find(params[:id])
   end
 ~~~~~~~~
