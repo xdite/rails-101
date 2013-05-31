@@ -1,0 +1,77 @@
+{::pagebreak :/}
+
+
+### 4.1.3 join 與 quit action
+
+
+
+在 Groups Controller 加入以下這兩個 action
+
+~~~~~~~~~~
+
+  def join
+    @group = Group.find(params[:id])
+
+    if !current_user.is_member_of?(@group)
+      current_user.join!(@group)
+    else
+      flash[:warning] = "You already joined this group."
+    end
+    redirect_to group_path(@group)
+  end
+
+  def quit
+    @group = Group.find(params[:id])
+
+    if current_user.is_member_of?(@group)
+      current_user.quit!(@group)
+    else
+      flash[:warning] = "You are not member of this group."
+    end
+    
+    redirect_to group_path(@group)
+
+  end
+~~~~~~~~~~
+
+然後在 config/routes.rb 修改 `resources :groups` 這一段，變成：
+
+~~~~~~~~~~
+  resources :groups do 
+    member do 
+      post :join
+      post :quit
+    end
+    resources :posts
+  end
+~~~~~~~~~~  
+
+再修改 `app/views/groups/show.html.erb` 加入這一段：
+
+~~~~~~~~~~
+  <% if current_user %>
+    <div class="group pull-right"> 
+    <% if current_user.is_member_of?(@group) %>
+      <%= link_to("Quit Group", quit_group_path(@group), :method => :post, :class => "btn btn-mini") %>
+    <% else %>
+      <%= link_to("Join Group", join_group_path(@group), :method => :post, :class => "btn btn-mini") %>
+    <% end %>
+    </div>
+  <% end %>
+~~~~~~~~~~
+
+
+修改 `app/views/groups/show.html.erb` 原先的 
+
+~~~~~~~~~~
+  <%= link_to("New Post", new_group_post_path(@group) , :class => "btn btn-mini btn-primary") if current_user %>
+~~~~~~~~~~
+
+變成 
+
+~~~~~~~~~~
+  <%= link_to("New Post", new_group_post_path(@group) , :class => "btn btn-mini btn-primary") if current_user.is_member_of?(@group) %>
+
+~~~~~~~~~~
+
+

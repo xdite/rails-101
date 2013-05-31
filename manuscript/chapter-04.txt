@@ -1,17 +1,16 @@
-# 練習作業 4 - 實作 Account 後台
+# 練習作業 4 - User 可以加入、退出社團
 
-## 作業目標
+### 作業目標
 
-實作簡單的 Account 後台機制
-
-* user 可以至 account 找到自己曾經發表過的文章
+* user 可以在 group 頁面加入社團 / 退出社團
 
 
 ### 本章練習主題
 
-* namespace routing
+* has_many_belongs_to
+* custom routes
 
-## 作業解答
+### 作業解答
 
 TODO
 

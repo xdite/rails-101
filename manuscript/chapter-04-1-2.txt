@@ -1,0 +1,73 @@
+{::pagebreak :/}
+
+### 4.1.2 model method 與 after create
+
+實作以下 method 在 User model 內
+
+~~~~~~~~~~
+
+  def join!(group)
+    participated_groups << group
+  end
+
+  def quit!(group)
+    participated_groups.delete(group)
+  end
+
+  def is_member_of?(group)
+    participated_groups.include?(group)
+  end
+
+~~~~~~~~~~
+
+這樣我們之後，就可以在 controller ，使用 current_user.join!(group) 這樣的語法來加入 group。  
+
+
+### 產生 Group 後自動加入 group 作為 group 的一員
+
+在一般的認知中，Group 的開創者應該就要是 group 的一員。這有兩種作法，一種是到 `app/controller/groups_controller.rb` 裡的 `create` action 裡面加入 `current_user.join!(group)`
+
+~~~~~~~~~~
+    @group = current_user.groups.build(group_params)
+    if @group.save 
+      current_user.join!(group)
+      redirect_to groups_path
+    else
+      render :new
+    end
+  end
+~~~~~~~~~~  
+
+或者是你也可以使用 ActiveRecord 的 after_create，更漂亮的實作：
+
+~~~~~~~~~~
+
+class Group < ActiveRecord::Base
+
+  belongs_to :owner, :class_name => "User", :foreign_key => :user_id
+  has_many :posts
+
+  has_many :group_users
+  has_many :members, :through => :group_users, :source => :user
+
+ 
+  validates :title, :presence => true
+
+  after_create :join_owner_to_group
+
+  def editable_by?(user)
+    user && user == owner
+  end
+
+  def join_owner_to_group
+    members << owner
+  end
+
+end
+
+
+~~~~~~~~~~
+
+### 解說
+
+TODO

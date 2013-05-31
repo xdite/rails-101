@@ -1,0 +1,93 @@
+{::pagebreak :/}
+
+## 4.1 使用者必須要是這個社團的成員才能發表文章
+
+在第 2 章、第 3 章我們完成了 Group 與 Post 的新增與管理。在這一章我們要挑戰一點進階的課題。
+
+### 4.1.1 has_many :through
+
+新增 group_user 這個 model：`rails g model group_user group_id:integer user_id:integer`
+
+執行 migration：`rake db:migrate`
+
+
+~~~~~~~~~
+
+==  CreateGroupUsers: migrating ===============================================
+-- create_table(:group_users)
+   -> 0.0238s
+==  CreateGroupUsers: migrated (0.0239s) ======================================
+
+~~~~~~~~~
+
+在 User model 加入
+
+~~~~~~~~~
+  has_many :group_users
+  has_many :participated_groups, :through => :group_users, :source => :group
+~~~~~~~~~
+
+內容變成以下
+
+~~~~~~~~~
+class Group < ActiveRecord::Base
+
+  belongs_to :owner, :class_name => "User", :foreign_key => :user_id
+  has_many :posts
+  has_many :group_users
+  has_many :participated_groups, :through => :group_users, :source => :group
+ 
+  validates :title, :presence => true
+
+
+  def editable_by?(user)
+    user && user == owner
+  end
+end
+
+~~~~~~~~~
+
+
+{::pagebreak :/}
+
+
+在 Group model 加入
+
+~~~~~~~~~
+  has_many :group_users
+  has_many :members, :through => :group_users, :source => :user
+~~~~~~~~~
+
+
+
+內容變成以下
+
+~~~~~~~~~
+class Group < ActiveRecord::Base
+
+  belongs_to :owner, :class_name => "User", :foreign_key => :user_id
+  has_many :posts
+  has_many :group_users
+  has_many :participated_groups, :through => :group_users, :source => :group
+ 
+  validates :title, :presence => true
+
+
+  def editable_by?(user)
+    user && user == owner
+  end
+end
+
+~~~~~~~~~
+
+修改 GroupUser model 成
+
+~~~~~~~~~
+class GroupUser < ActiveRecord::Base
+  belongs_to :group
+  belongs_to :user 
+end
+~~~~~~~~~
+
+
+### 解說 TODO

@@ -152,15 +152,16 @@ end
 
 <div class="span12">
 
- <% if current_user && @group.editable_by?(current_user) %>
+
  <div class="group pull-right">
-
+ <% if current_user && @group.editable_by?(current_user) %>
   <%= link_to("Edit", edit_group_path(@group) , :class => "btn btn-mini ")%> 
+  <% end %>
 
-  <%= link_to("New Post", new_group_post_path(@group) , :class => "btn btn-mini btn-primary")%>
+  <%= link_to("New Post", new_group_post_path(@group) , :class => "btn btn-mini btn-primary" if current_user )%>
   &nbsp;  
   </div>
-  <% end %>
+
 <h2> <%= @group.title %> </h2> 
 
 <p> <%= @group.description %> </p> 
