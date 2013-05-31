@@ -24,3 +24,22 @@
 
 
 
+{::pagebreak :/}
+
+## Ch 1.0 CRUD
+
+CRUD 指的是 Create(新增)、Read(讀取)、Update(更新)、Destroy(刪除)四種操作資料的基本方式，這也是開發網站時幾乎大家最常寫到的四種功能。
+
+Rails 在開發上極具優勢的其中一個原因，就是使用了 RESTful 的機制以及 內建的 Convention，在實作 CRUD-like 功能時，隔外顯現開發速度上的優勢。 
+
+### 實作課題
+
+本章將會實作以下課題
+
+* 產生 Group 與 Post 這兩個 Model
+* Group 需要有名稱 title, description
+* Post 需要有文章標題 文章內容 content
+* 寫出 Group 的 CRUD controller 與 View
+* 寫出 Posts 的 CRUD controller 與 View
+* 在 routing 中對 Group 和 Posts 分別宣告它們都是 resources
+

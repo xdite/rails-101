@@ -1,6 +1,6 @@
 {::pagebreak :/}
 
-## Ch 3.1.3 讓 Post 與 User 產生關聯：
+## Ch 3.3 讓 Post 與 User 產生關聯：
 
 
 新增一條 migration： `rails g migration add_user_id_to_post`
@@ -54,7 +54,7 @@ class User < ActiveRecord::Base
 
 end
 
-{::pagebreak :/}
+
 ~~~~~~~~~
 
 

@@ -1,6 +1,6 @@
 {::pagebreak :/}
 
-## Ch 3.1.0 devise 與 Rails 4
+## Ch 3.0 devise 與 Rails 4
 
 ### 安裝 gem
 
