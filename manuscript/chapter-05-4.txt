@@ -1,0 +1,129 @@
+{::pagebreak :/}
+
+## Ch 5.4 Group 的排序要以文章數量的熱門度 ASC 排序
+
+在 `app/views/account/groups/index.html.erb` 裡面你應該有發現這一段 `<%= group.posts.count %>` code。
+
+~~~~~~~~
+<div class="span12"> 
+
+  <tbody>
+    <% @groups.each do |group| %> 
+    <tr>
+      <td> # </td>
+      <td> <%= link_to(group.title, group_path(group)) %> </td>
+      <td> <%= group.description %> </td>
+      <td> <%= group.posts.count %> </td>
+      <td> <%= group.updated_at %> </td>
+    </tr>
+    <% end %> 
+  </tbody>
+</table>
+</div>
+
+~~~~~~~~  
+
+
+`group.posts.count` 這一段 code 是不太健康的，因為它產生了這樣的 SQL query。
+
+~~~~~~~~
+(0.2ms)  SELECT COUNT(*) FROM `posts` WHERE `posts`.`group_id` = 1
+~~~~~~~~
+
+如果你有開發過網頁程式 application 的經驗，在迴圈裡面跑 count 對效能是相當傷的。實務上我們相當不建議這麼做。
+
+那麼，這一段要怎麼改善呢？比較直觀的想法，就是在 groups 這個 table 再開一欄叫作 `posts_count` 的欄位。然後在
+create action 裡面對 `posts_count` +1 
+
+~~~~~~~~  
+
+  def create
+
+    @post = @group.posts.new(post_params)
+    @post.author = current_user
+
+    if @post.save 
+      Group.increment_counter(:posts_count, @group.id)
+      redirect_to group_path(@group)
+    else
+      render :new
+    end
+  end
+
+
+~~~~~~~~  
+
+{::pagebreak :/}
+
+在 `destroy action` 裡面對 `posts_count` - 1 
+
+~~~~~~~~  
+  def destroy
+
+    @post = current_user.posts.find(params[:id])
+    @post.destroy
+
+    Group.decrement_counter(:posts_count, @group.id)
+    redirect_to group_path(@group)
+  end
+
+~~~~~~~~    
+
+
+不過，其實倒也不用這麼麻煩。Rails 內建一個叫作 `counter_cache` 的機制，只要內建子關係的 count 欄位，如 `posts_count`。
+
+`rails g migration add_posts_count_to_group`
+
+~~~~~~~~  
+      invoke  active_record
+      create    db/migrate/20130531183331_add_posts_count_to_group.rb
+~~~~~~~~  
+
+填入
+
+~~~~~~~~  
+
+class AddPostsCountToGroup < ActiveRecord::Migration
+  def change
+    add_column :groups, :posts_count, :integer, :default => 0
+  end
+end
+
+~~~~~~~~  
+
+執行 `rake db:migrate`
+
+
+~~~~~~~~  
+
+==  AddPostsCountToGroup: migrating ===========================================
+-- add_column(:groups, :posts_count, :integer, {:default=>0})
+   -> 0.0232s
+==  AddPostsCountToGroup: migrated (0.0232s) ==================================
+
+~~~~~~~~  
+
+然後在子關係的欄位裡，這樣設定：
+
+~~~~~~~~  
+  belongs_to :group, :counter_cache => true
+~~~~~~~~  
+
+以後只要 post 遇到 create 或者是 destroy，就會自動對這個欄位 +1 / -1 。不需要在 controller 裡面另外動作。
+
+
+{::pagebreak :/}
+
+而上了 counter_cache 之後，`<%= group.posts.count %>` 以後執行時，也會優先去找 `posts_count` 裡的值，而不是真的下 MySQL 的 COUNT 去實際算值。
+
+而加了這個 posts_count 欄位之後，我們就可以修改 index 裡的排序規則變成以文章數量的熱門度 ASC 排序
+
+
+~~~~~~~~  
+  def index
+    @groups = current_user.participated_groups.order("posts_count ASC")
+  end
+~~~~~~~~  
+
+
+

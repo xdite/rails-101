@@ -39,6 +39,8 @@ chapter-04-1-3.txt
 chapter-05.txt
 chapter-05-1.txt
 chapter-05-2.txt
+chapter-05-3.txt
+chapter-05-4.txt
 chapter-06.txt
 chapter-06-1.txt
 chapter-07.txt

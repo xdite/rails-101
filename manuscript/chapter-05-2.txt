@@ -1,6 +1,6 @@
 {::pagebreak :/}
 
-## 5.2 User 必須要在使用者後台可以看到自己發表的文章
+## Ch 5.2 User 必須要在使用者後台可以看到自己發表的文章
 
 新增 account/posts controller：`rails g controller account/posts`
 
@@ -36,6 +36,7 @@ class Account::PostsController < ApplicationController
 end
 ~~~~~~~~
 
+{::pagebreak :/}
 
 `touch app/views/account/posts/index.html.erb` 新增裡面的內容
 
@@ -85,6 +86,8 @@ end
 ~~~~~~~~   
 
 
+{::pagebreak :/}
+
 修改 `app/common/_user_nav.html.erb` 裡的
 
 ~~~~~~~~ 
@@ -94,7 +97,7 @@ end
       end %>
 ~~~~~~~~ 
 
-
+變成
 
 ~~~~~~~~ 
       <%= render_list :class => "dropdown-menu" do |li|

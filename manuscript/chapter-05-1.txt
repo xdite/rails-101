@@ -1,6 +1,6 @@
 {::pagebreak :/}
 
-## 5.1 User 必須要在使用者後台可以看到自己參加的 Group
+## Ch 5.1 User 必須要在使用者後台可以看到自己參加的 Group
 
 
 新增 account/groups controller：`rails g controller account/groups`
@@ -68,7 +68,6 @@ end
 
 ~~~~~~~~   
 
-
 修改 `config/routes.rb` 加入
 
 ~~~~~~~~   
@@ -84,6 +83,8 @@ end
           li << link_to("Logout",destroy_user_session_path, :method => :delete )
       end %>
 ~~~~~~~~ 
+
+變成
 
 ~~~~~~~~ 
       <%= render_list :class => "dropdown-menu" do |li|
