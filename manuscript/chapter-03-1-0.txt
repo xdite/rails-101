@@ -1,6 +1,6 @@
 {::pagebreak :/}
 
-## Ch 3.1.0 安裝 devise
+## Ch 3.1.0 devise 與 Rails 4
 
 ### 安裝 gem
 
@@ -37,17 +37,18 @@ gem 'devise'
 
 #### devise 相關連結
 
-~~~~~~~~~
-  <li> <%= link_to( "Sign Up" ,new_user_registration_path) %> </li>
-  <li> <%= link_to( "Login", new_user_session_path )  %> </li>   
-  <li> <%= link_to("Logout",destroy_user_session_path, :method => :delete ) %> </li>
-~~~~~~~~~
+* 註冊 `<%= link_to( "Sign Up" ,new_user_registration_path) %> `
+* 登入 `<%= link_to( "Login", new_user_session_path )  %> `
+* 登出  `<%= link_to("Logout",destroy_user_session_path, :method => :delete ) %> `
+
 
 
 ### devise 相關 method
 
 1. 判斷現在使用者是否登入了，可以使用 current_user.blank?。
 2. 要取現在這個登入的使用者資料，可以使用 current_user
+
+{::pagebreak :/}
 
 ### login_required
 
@@ -78,6 +79,8 @@ Boostrappers 在 `app/controller/application_controller.rb` 也先預幫開發�
 如果開發者只是單純想限制哪一個 action 需要登入才能使用，只要掛上 before_action ，再指定即可。  
 
 
+{::pagebreak :/}
+
 ### 客製化 devise
 
 原始的 devise 設計，只有 email 與 password 的設計，並沒有 name 的欄位。雖然 Boostrappers 幫忙也生了 name 的欄位，但是我們還是得在 devise 的註冊表單加進去 name 才行，否則註冊進去的 user 都會沒有 name。
@@ -88,9 +91,10 @@ devise 的 view 預設是隱藏起來，直接使用 gem 內的 view。要客製
 
 `rails g devise:views`
 
-~~~~~~~~~
+
 會生成一堆檔案
 
+~~~~~~~~~
       invoke  Devise::Generators::SharedViewsGenerator
       create    app/views/users/shared
       create    app/views/users/shared/_links.erb
@@ -114,9 +118,11 @@ devise 的 view 預設是隱藏起來，直接使用 gem 內的 view。要客製
       create    app/views/users/mailer/unlock_instructions.html.erb
 ~~~~~~~~~
 
-註冊表單是  `app/views/users/registrations/new.html.erb`
+{::pagebreak :/}
 
-加入一行 name 使之成為
+### 修改註冊表單
+
+註冊表單的檔案是  `app/views/users/registrations/new.html.erb`，加入一行 name 使之成為
 
 ~~~~~~~~~
 <h2>Sign up</h2>
@@ -138,3 +144,23 @@ devise 的 view 預設是隱藏起來，直接使用 gem 內的 view。要客製
 
 <%= render "users/shared/links" %>
 ~~~~~~~~~
+
+### 加入 strong_parameters 與 devise 整合的 hack
+
+在 `app/controller/application_controller` 加上這些設定：
+
+~~~~~~
+
+  before_filter :configure_permitted_parameters, if: :devise_controller?
+
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :email, :password, :password_confirmation) }
+  end
+
+~~~~~~
+
+I> <https://github.com/plataformatec/devise/tree/rails4#strong-parameters>
+

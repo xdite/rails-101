@@ -123,6 +123,8 @@ end
   end
 ~~~~~~~~~
 
+{::pagebreak :/}
+
 
 ### destroy
 
@@ -151,6 +153,7 @@ end
       <td> # </td>
       <td> Title </td>
       <td> Descroption </td>
+      <td> Owner </td>
     </tr>
   </thead>
   <tbody>
@@ -159,6 +162,7 @@ end
       <td> # </td>
       <td> <%= link_to(group.title, group_path(group)) %> </td>
       <td> <%= group.description %> </td>
+      <td> <%= group.owner.name %> </td>
       <td> 
         <% if current_user && group.editable_by?(current_user) %>
         <%= link_to("Edit", edit_group_path(group), :class => "btn btn-mini")%>
