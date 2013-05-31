@@ -1,9 +1,7 @@
 {::pagebreak :/}
 
 
-### 4.1.3 join 與 quit action
-
-
+## 4.1.3 join 與 quit action
 
 在 Groups Controller 加入以下這兩個 action
 
@@ -74,4 +72,21 @@
 
 ~~~~~~~~~~
 
+### 在 controller 裡加入 member_required 
 
+在 Post 這個 controller 裡面加入另一個 before_action
+
+~~~~~~~~~~
+  before_action :member_required, :only => [:new, :create ]
+~~~~~~~~~~
+
+在 `private` 下新增 `member_required` 這個 method
+
+~~~~~~~~~~
+  def member_required
+    if !current_user.is_member_of?(@group)
+      flash[:warning] = " You are not member of this group!"
+      redirect_to group_path(@group)
+    end  
+  end
+~~~~~~~~~~

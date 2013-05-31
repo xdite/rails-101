@@ -3,16 +3,14 @@
 ### 作業目標
 
 * user 可以在 group 頁面加入社團 / 退出社團
-
+* user 必須要是這個社團的成員才能發表文章
 
 ### 本章練習主題
 
 * has_many_belongs_to
 * custom routes
 
-### 作業解答
 
-TODO
 
 
 

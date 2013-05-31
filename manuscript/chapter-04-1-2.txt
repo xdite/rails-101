@@ -1,6 +1,6 @@
 {::pagebreak :/}
 
-### 4.1.2 model method 與 after create
+## 4.1.2 model method 與 after create
 
 實作以下 method 在 User model 內
 
