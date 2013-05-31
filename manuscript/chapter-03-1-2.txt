@@ -2,7 +2,7 @@
 
 ## Ch 3.1.2 讓 Group 與 User 產生關聯：
 
-新增一條 migration `rails g migration add_user_id_to_group`
+新增一條 migration： `rails g migration add_user_id_to_group`
 
 ~~~~~~~~~
       invoke  active_record
