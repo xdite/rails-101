@@ -1,0 +1,106 @@
+{::pagebreak :/}
+
+## 5.2 User 必須要在使用者後台可以看到自己發表的文章
+
+新增 account/posts controller：`rails g controller account/posts`
+
+~~~~~~~~
+      create  app/controllers/account/posts_controller.rb
+      invoke  erb
+      create    app/views/account/posts
+      invoke  test_unit
+      create    test/controllers/account/posts_controller_test.rb
+      invoke  helper
+      create    app/helpers/account/posts_helper.rb
+      invoke    test_unit
+      create      test/helpers/account/posts_helper_test.rb
+      invoke  assets
+      invoke    coffee
+      create      app/assets/javascripts/account/posts.js.coffee
+      invoke    scss
+      create      app/assets/stylesheets/account/posts.css.scss
+~~~~~~~~      
+
+新增 `app/controllers/account/groups_controller.rb` 裡的內容
+
+
+~~~~~~~~
+class Account::PostsController < ApplicationController
+
+  before_filter :login_required
+  
+  def index
+    @posts = current_user.posts
+  end
+
+end
+~~~~~~~~
+
+
+`touch app/views/account/posts/index.html.erb` 新增裡面的內容
+
+
+~~~~~~~~
+<div class="span12">
+
+  <table class="table">
+
+    <thead>
+     <tr>
+
+      <td> Content </td>
+      <td> Group name </td>
+      <td> Last Update </td>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %> 
+    <tr>
+      <td>        <p>       <%= post.content %>     </p>     </td>
+
+      <td>      <%= post.group.title %>    </td>
+
+      <td> <%= post.updated_at %> </td>
+
+
+      <td> <%= link_to("Edit", edit_group_post_path(post.group, post), :class => "btn btn-mini")%>
+        <%= link_to("Delete", group_post_path(post.group, post), :class => "btn btn-mini", :method => :delete, :confirm => "Are you sure?" ) %> </td>
+      </tr>
+      <% end %> 
+    </tbody>
+  </table>
+</div>
+
+~~~~~~~~
+
+
+修改 `config/routes.rb` 加入 `resources :posts`
+
+~~~~~~~~   
+  namespace :account do 
+    resources :groups
+    resources :posts
+  end
+~~~~~~~~   
+
+
+修改 `app/common/_user_nav.html.erb` 裡的
+
+~~~~~~~~ 
+      <%= render_list :class => "dropdown-menu" do |li|
+          li << link_to("My Group", account_groups_path)
+          li << link_to("Logout",destroy_user_session_path, :method => :delete )
+      end %>
+~~~~~~~~ 
+
+
+
+~~~~~~~~ 
+      <%= render_list :class => "dropdown-menu" do |li|
+          li << link_to("My Group", account_groups_path)
+          li << link_to("My Post", account_posts_path)
+          li << link_to("Logout",destroy_user_session_path, :method => :delete )
+      end %>
+~~~~~~~~ 
+

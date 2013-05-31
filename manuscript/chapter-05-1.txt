@@ -1,0 +1,97 @@
+{::pagebreak :/}
+
+## 5.1 User 必須要在使用者後台可以看到自己參加的 Group
+
+
+新增 account/groups controller：`rails g controller account/groups`
+
+~~~~~~~~
+   identical  app/controllers/account/groups_controller.rb
+      invoke  erb
+       exist    app/views/account/groups
+      invoke  test_unit
+   identical    test/controllers/account/groups_controller_test.rb
+      invoke  helper
+   identical    app/helpers/account/groups_helper.rb
+      invoke    test_unit
+   identical      test/helpers/account/groups_helper_test.rb
+      invoke  assets
+      invoke    coffee
+   identical      app/assets/javascripts/account/groups.js.coffee
+      invoke    scss
+   identical      app/assets/stylesheets/account/groups.css.scss
+~~~~~~~~   
+
+
+新增 `app/controllers/account/groups_controller.rb` 裡的內容
+
+~~~~~~~~
+class Account::GroupsController < ApplicationController
+  before_filter :login_required
+  
+  def index
+    @groups = current_user.participated_groups
+  end
+end
+~~~~~~~~   
+
+
+`touch app/views/account/groups/index.html.erb` 新增裡面的內容
+
+~~~~~~~~
+<div class="span12"> 
+
+  <h2> My Groups </h2>
+
+  <table class="table">
+    <thead> <tr>
+      <td> # </td>
+      <td> Title </td>
+      <td> Descroption </td>
+      <td> Post Count </td>
+      <td> Last Update </td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @groups.each do |group| %> 
+    <tr>
+      <td> # </td>
+      <td> <%= link_to(group.title, group_path(group)) %> </td>
+      <td> <%= group.description %> </td>
+      <td> <%= group.posts.count %> </td>
+      <td> <%= group.updated_at %> </td>
+    </tr>
+    <% end %> 
+  </tbody>
+</table>
+</div>
+
+~~~~~~~~   
+
+
+修改 `config/routes.rb` 加入
+
+~~~~~~~~   
+  namespace :account do 
+    resources :groups
+  end
+~~~~~~~~   
+
+修改 `app/common/_user_nav.html.erb` 裡的
+
+~~~~~~~~ 
+      <%= render_list :class => "dropdown-menu" do |li|
+          li << link_to("Logout",destroy_user_session_path, :method => :delete )
+      end %>
+~~~~~~~~ 
+
+~~~~~~~~ 
+      <%= render_list :class => "dropdown-menu" do |li|
+          li << link_to("My Group", account_groups_path)
+          li << link_to("Logout",destroy_user_session_path, :method => :delete )
+      end %>
+~~~~~~~~ 
+
+
+
+

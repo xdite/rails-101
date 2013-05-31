@@ -1,20 +1,15 @@
 # 練習作業 5 - 實作簡單的 Account 後台機制
 
-## 作業目標
+### 作業目標
 
 * user 可以在 account 頁面找到自己曾經加入的社團
 * user 可以至 account 找到自己曾經發表過的文章
-
-* 文章列表要能夠分頁
-* 每一頁 10 筆
 * 每個 Group 要秀出現在有多少 post 數量
 * 文章列表的排序要以發表時間以 DESC 排序。
 
-## 練習主題
+### 練習主題
 
 * 使用 [counter_cache](http://railscasts.com/episodes/23-counter-cache-column) 取代直接對資料庫的 count 
-* 實作看板分頁（pagination）機制
 * 了解 ORM 的基本用法
 
 
-## 作業解答
