@@ -42,3 +42,37 @@ gem 'devise'
   <li> <%= link_to( "Login", new_user_session_path )  %> </li>   
   <li> <%= link_to("Logout",destroy_user_session_path, :method => :delete ) %> </li>
 ~~~~~~~~~
+
+
+### devise 相關 method
+
+1. 判斷現在使用者是否登入了，可以使用 current_user.blank?。
+2. 要取現在這個登入的使用者資料，可以使用 current_user
+
+### login_required
+
+Boostrappers 在 `app/controller/application_controller.rb` 也先預幫開發者準備好一個 method：`login_required`。
+
+
+~~~~~~~~~
+
+  def login_required
+    if current_user.blank?
+      respond_to do |format|
+        format.html  {
+          authenticate_user!
+        }
+        format.js{
+          render :partial => "common/not_logined"
+        }
+        format.all {
+          head(:unauthorized)
+        }
+      end
+    end
+  
+  end
+
+~~~~~~~~~
+
+如果開發者只是單純想限制哪一個 action 需要登入才能使用，只要掛上 before_action ，再指定即可。  

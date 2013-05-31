@@ -1,0 +1,23 @@
+{::pagebreak :/}
+
+## Ch 3.1.1 對需要加入登入的 Action 加入限制。
+
+根據需求：使用者必須能夠 註冊 / 登入，登入後才可以開設 Group，與發表 Post。
+
+所以我們要在 Groups controller 加入：
+
+~~~~~~~~~
+class GroupsController < ApplicationController
+
+  before_action :login_required, :only => [:new, :create, :edit,:update,:destroy]
+~~~~~~~~~
+
+在 Posts controller 加入：
+
+~~~~~~~~~
+class PostsController < ApplicationController
+
+  before_action :login_required, :only => [:new, :create, :edit,:update,:destroy]
+~~~~~~~~~
+
+

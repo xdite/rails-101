@@ -1,10 +1,10 @@
-# 練習作業 3 - 為 Group 加入使用者機制
+# 練習作業 3 - 為 Group 與 Post 加入使用者機制
 
 在上一章我們完成了在 Group 裡面發表文章的功能。但是通常一個討論區的機制，必須是先加入會員才能進行相關動作。所以我們必須為討論區加入使用者機制：
 
-使用者必須能夠 註冊 / 登入，登入後才可以發表 Post，不然只能瀏覽。只有自己的 Post 才能進行修改與刪除。
+使用者必須能夠 註冊 / 登入，登入後才可以開設 Group，與發表 Post，不然只能瀏覽。只有自己的 Group，Post 才能進行修改與刪除。
 
-## 練習主題
+### 本章練習主題
 
 * 安裝 gem 
 * 設定 devise
@@ -12,7 +12,7 @@
 * 利用 before_action 結合 login_required 加入登入判斷
 * session 的使用：current_user
 
-## 參考資料
+### 本章參考資料
 
 * [devise](https://github.com/plataformatec/devise/wiki)
 

@@ -1,0 +1,178 @@
+{::pagebreak :/}
+
+## Ch 3.1.2 讓 Group 與 User 產生關聯：
+
+新增一條 migration `rails g migration add_user_id_to_group`
+
+~~~~~~~~~
+      invoke  active_record
+      create    db/migrate/20130531141923_add_user_id_to_group.rb
+~~~~~~~~~
+
+填入以下內容
+
+~~~~~~~~~
+class AddUserIdToGroup < ActiveRecord::Migration
+  def change
+    add_column :groups, :user_id, :integer
+  end
+end
+~~~~~~~~~
+
+執行 `rake db:migrate`
+
+~~~~~~~~~
+==  AddUserIdToGroup: migrating ===============================================
+-- add_column(:groups, :user_id, :integer)
+   -> 0.0213s
+==  AddUserIdToGroup: migrated (0.0214s) ======================================
+~~~~~~~~~
+
+
+修改 `app/models/user.rb` 加入
+
+~~~~~~~~~
+has_many :groups
+~~~~~~~~~
+
+內容如下
+
+~~~~~~~~~
+class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :token_authenticatable, :confirmable,
+  # :lockable, :timeoutable and :omniauthable
+
+  has_many :groups
+    
+  extend OmniauthCallbacks
+
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable
+
+
+end
+~~~~~~~~~
+
+修改 `app/models/group.rb` 加入
+
+~~~~~~~~~
+  belongs_to :owner, :class_name => "User", :foreign_key => :user_id
+
+
+  def editable_by?(user)
+    user && user == owner
+  end
+
+~~~~~~~~~
+
+
+內容如下：
+
+~~~~~~~~~
+class Group < ActiveRecord::Base
+
+  belongs_to :owner, :class_name => "User", :foreign_key => :user_id
+  has_many :posts
+ 
+  validates :title, :presence => true
+
+
+  def editable_by?(user)
+    user && user == owner
+  end
+end
+
+
+~~~~~~~~~
+
+接著我們要把 Groups 的幾個 action 內容替換掉：
+
+### create
+
+~~~~~~~~~
+
+  def create
+    @group = current_user.groups.build(group_params)
+    if @group.save 
+      redirect_to groups_path
+    else
+      render :new
+    end
+  end
+~~~~~~~~~
+
+### edit
+
+~~~~~~~~~
+  def edit
+    @group = current_user.groups.find(params[:id])
+  end
+~~~~~~~~~
+
+
+### update
+
+~~~~~~~~~
+  def update
+    @group = current_user.groups.find(params[:id])
+
+    if @group.update(group_params)
+      redirect_to group_path(@group)
+    else
+      render :edit
+    end
+  end
+~~~~~~~~~
+
+
+### destroy
+
+~~~~~~~~~
+  def destroy
+    @group = current_user.groups.find(params[:id])
+
+    @group.destroy
+
+    redirect_to groups_path
+  end
+~~~~~~~~~
+
+把 app/views/groups/index.html.erb 的內容換掉
+
+~~~~~~~~~
+
+<div class="span12"> 
+  <div class="group">
+    <%= link_to("New group", new_group_path , :class => "btn btn-mini btn-primary pull-right")%>
+  </div>
+  <table class="table">
+    <thead> <tr>
+      <td> # </td>
+      <td> Title </td>
+      <td> Descroption </td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @groups.each do |group| %> 
+    <tr>
+      <td> # </td>
+      <td> <%= link_to(group.title, group_path(group)) %> </td>
+      <td> <%= group.description %> </td>
+      <td> 
+        <% if current_user && group.editable_by?(current_user) %>
+        <%= link_to("Edit", edit_group_path(group), :class => "btn btn-mini")%>
+        <%= link_to("Delete", group_path(group), :class => "btn btn-mini", :method => :delete, :confirm => "Are you sure?" ) %> 
+        <% end %>
+      </td>
+    </tr>
+    <% end %> 
+  </tbody>
+</table>
+</div>
+
+~~~~~~~~~
+
+### 解說 
+
+TODO
