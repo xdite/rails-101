@@ -1,6 +1,6 @@
 {::pagebreak :/}
  
-## Ch 2.1.1 Groups controller 的 show 裡面撈出相關的 Post
+## Ch 2.1.1 在 Groups controller 的 show 裡面撈出相關的 Post
 
 到 `app/controllers/groups_controller.rb`，將 show 修改成以下內容
 

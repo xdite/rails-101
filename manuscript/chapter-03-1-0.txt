@@ -1,0 +1,44 @@
+{::pagebreak :/}
+
+## Ch 3.1.0 安裝 devise
+
+### 安裝 gem
+
+Rails 內，安裝 gem 的方式是透過 Bundler 這個工具。具體方式是修改 `Gemfile` 這個檔案，加入所需要安裝的 gem，再執行 `bundle install`，即能安裝完畢。
+
+### 安裝 devise
+
+
+[devise](https://github.com/plataformatec/devise) 是目前 Rails 界最被廣為使用的認證系統。其彈性的設計支援很多實務上的需求，如：鎖定賬號（Lockable）、需要認證（Confirmable）、取回帳號（Recoverable）、與第三方認證如 Facebook 整合（ OmniAuthable）。
+
+在本書裡面我們使用的 Boostrappers 內建即幫我們安裝好 `devise` 這個 gem。
+
+不過你還是可以開一個空專案，實際裝一下練習看看。
+
+
+修改 `Gemfile`
+
+~~~~~~~~~
+gem 'devise'
+~~~~~~~~~
+
+使用 bundle 安裝
+
+`bundle install`
+
+產生必要檔案
+
+`rails g devise:install`
+
+產生 user model 檔案
+
+`rails generate devise user`
+
+
+#### devise 相關連結
+
+~~~~~~~~~
+  <li> <%= link_to( "Sign Up" ,new_user_registration_path) %> </li>
+  <li> <%= link_to( "Login", new_user_session_path )  %> </li>   
+  <li> <%= link_to("Logout",destroy_user_session_path, :method => :delete ) %> </li>
+~~~~~~~~~

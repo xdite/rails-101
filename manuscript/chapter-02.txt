@@ -8,6 +8,3 @@
 * 學會 resources 的設定 （ 雙層 resources )
 * 使用 before_action 整理程式碼
 
-
-
-## 

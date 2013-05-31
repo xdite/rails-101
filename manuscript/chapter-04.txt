@@ -1,0 +1,120 @@
+# 練習作業 4 - 為 Group 加入管理者機制以及管理者後台
+
+## 作業目標
+
+
+實作簡單的 admin 機制：
+
+* admin 擁有一個後台，可以刪改所有文章。
+* admin 可以新增文章 / 刪除文章
+* 網址是 http://groupme.dev/admin/posts
+* 有身分是 admin 的人可以進後台。
+* admin 的判別方是 column 裡加一個 boolean，判斷是否 admin。
+* 這個 attribute 必須用 attr_accessible / attr_protected 保護。
+
+## 練習主題
+
+* 學習如何實作 admin 身分
+* 利用 [attr_accessible](http://apidock.com/rails/v3.0.7/ActiveModel/MassAssignmentSecurity/ClassMethods/attr_accessible) / [attr_protected](http://apidock.com/rails/v3.0.7/ActiveModel/MassAssignmentSecurity/ClassMethods/attr_protected) 保護重要欄位不被竄改
+* 實作 namespace routing
+* 利用 before_filter : require_is_admin 檢查 admin 權限
+
+## 作業解答
+
+TODO
+
+# 練習作業 5 - 為文章列表加入分頁機制
+
+## 作業目標
+
+* 文章列表要能夠分頁
+* 每一頁 5 筆
+* 每篇文章要秀出現在有多少 comment 數量
+* 文章列表的排序要以發表時間以 DESC 排序。
+
+## 練習主題
+
+* 使用 [counter_cache](http://railscasts.com/episodes/23-counter-cache-column) 取代直接對資料庫的 count 
+* 實作看板分頁（pagination）機制
+* 練習使用 scope 機制包裝不同 condition 的 SQL query
+
+
+## 作業解答
+
+TODO
+
+
+# 練習作業 6 - 每一篇文章可以上傳附件(圖片)
+
+
+## 作業目標
+
+發表文章時可以順便夾帶一張附件。
+
+
+## 練習主題
+
+* 使用 [form_for](http://apidock.com/rails/ActionView/Helpers/FormHelper/form_for) :multipart => true 上傳
+多媒體
+* 學習使用 paperclip 縮圖
+
+## 參考資料
+
+[paperclip](https://github.com/thoughtbot/paperclip/wiki)
+
+## 作業解答
+
+TODO
+
+# 練習作業 7 - 撰寫自動化 Rake 以及 db:seed
+
+
+## 作業目標
+
+用 Rake 撰寫自動化步驟，生假資料。
+
+寫一個 rake 可以達成以下步驟：「砍 db => 建 db => 跑 migration => 生種子資料」，另一個 rake 是生假文章與假留言。
+
+## 練習主題
+
+* 操作 rake -T
+* 撰寫一個 task 可以自動連續執行 rake db:drop ; rake db:create ; rake db:migrate ; rake db:seed
+* 撰寫一個 task 可以執行 rake dev:fake 生假資料 ( 自己寫 namespace : dev, 裡面放一個 task 叫做 fake，fake 資料用 Populator 生） # 請自行練習
+
+
+## 參考資料
+
+* [Ruby on Rails Rake Tutorial](http://jasonseifer.com/2010/04/06/rake-tutorial)
+* [What’s New in Edge Rails: Database Seeding](http://ryandaigle.com/articles/2009/5/13/what-s-new-in-edge-rails-database-seeding)
+ 
+## 作業解答
+
+TODO
+
+
+# 練習作業 8 - 將 Groupme deploy 到租來的 VPS
+
+
+## 作業目標
+
+在租來的 VPS 上面建置 Ruby on Rails production 環境，使用 Ruby Enterprise Edition 與 mod_rails。使用 [Capistrano](https://github.com/capistrano/capistrano/wiki) 佈署 application。
+
+## 練習主題
+
+* 學會如何自動部署專案
+* 使用 capistrano 自動部署專案
+* 操作 cap deploy:setup
+* 操作 cap deploy 
+* 操作 cap deploy:rollback 
+* 操作 cap deploy:restart
+
+
+## 參考資料
+
+* [rails-nginx-passenger-ubuntu](https://github.com/jnstq/rails-nginx-passenger-ubuntu)
+* [AWDR4](http://pragprog.com/titles/rails4/agile-web-development-with-rails) deploy 章節
+
+
+## 作業解答
+
+TODO
