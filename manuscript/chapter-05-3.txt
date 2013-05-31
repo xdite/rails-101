@@ -1,0 +1,26 @@
+{::pagebreak :/}
+
+## 5.3 文章列表的排序要以發表時間以 DESC 排序
+
+你應該有注意到，在 My Post 裡的每篇文章是以文章先後發表順序排列的，也就是越晚發表的文章排越下面。但是這樣預設的排列方式違反一般開發者的使用習慣。
+
+比較適當的排列方式應該是以文章的「修改時間」「倒序排列」。也就是最近修改的文章要排在越上面才行。
+
+
+修改 `app/controllers/account/groups_controller.rb` 裡的內容
+
+
+~~~~~~~~
+class Account::PostsController < ApplicationController
+
+  before_filter :login_required
+  
+  def index
+    @posts = current_user.posts.order("updated_at DESC")
+  end
+
+end
+~~~~~~~~
+
+這樣就能達到想要的效果了。
+
