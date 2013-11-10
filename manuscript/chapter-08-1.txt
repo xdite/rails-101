@@ -1,0 +1,29 @@
+## Ch 8.1 佈署 Rails Production 所需要的環境
+
+佈署 Rails Application 是件說簡單很簡單，說複雜也很複雜的事。佈署的手法有很多種搭配，筆者最推薦的其實是在 Ubuntu / Debian 安裝 Ruby Enterprise Edition，web sever 使用 nginx + mod_rails 的組合。之後再撰寫 Capistrano 的 recipe 來 deploy。
+
+
+### 為什麼要用獨立的 Ruby 版本，而不使用系統 Ruby？
+
+因為系統 Ruby 通常綑綁了背後的套件系統（RubyGem），Rails 是個腳步前進很快的生態圈。而各樣相依套件有時候也會限定 RubyGem 的版本。很多時候，在開發或佈署上就會踩到大地雷。
+
+所以會建議在系統上跑獨立的 Ruby。
+
+### 為什麼要用 Ubuntu / Debian ，而不是使用 CentOS？
+
+還是跟 Rails 是個腳步前進很快的生態圈有相當大的關係。Gem 的前進腳步很快，很多時候只 compatible 新的 library，而 CentOS 上很多 package 都已經 outdate 了。實際佈署上會踩到很多雷。而 Ubuntu / Debian 上的 package 更新速度非常快。所以也是首選。
+
+
+### 有沒有 Best Practice 懶人包？
+
+有。其實佈署真的不算是件易事，在佈署中最容易踩到的雷當數 ImageMagick ( rmagick gem) 與 MySQL ( mysql2 gem)。偏偏這幾乎是每個網站最常會用到的兩個 gem。而且裝爛了很難重裝。
+
+這是我們公司標準用來裝機的 Step by Step guide： <https://github.com/rocodev/guides/wiki/setup-production-development> 基本上已經排除不少裝機時可能會遇到的狀況。
+
+
+### 哪裡買域名和租 VPS？
+
+
+我是在 enom.com 買域名，管理介面還算蠻好用的。
+
+至於 VPS 是去 [Linode](http://linode.com/) 租的。算便宜大碗，速度上也能接受。若純練習也可到 [AWS EC2](http://aws.amazon.com/ec2/) 租東京的 micro instance。

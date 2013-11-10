@@ -23,9 +23,11 @@ Helper 是一些使用在 Rails 的 View 當中，用 Ruby 產生/整理 HTML co
 * vendor_js/disqus_js
 * global/footer
 
-本書範例 project 裡面的 layout/application.html.erb 就是很好的範例（見下頁）。
+
 
 {::pagebreak :/}
+
+本書範例 project 裡面的 layout/application.html.erb 就是很好的範例。
 
 ~~~~~~~~~
 <%= render :partial => "common/menu" %>

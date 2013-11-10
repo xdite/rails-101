@@ -1,6 +1,5 @@
 # 練習作業 7 - 撰寫自動化 Rake 以及 db:seed
 
-
 ### 作業目標
 
 用 Rake 撰寫自動化步驟，生假資料。
@@ -19,27 +18,3 @@
 * [Ruby on Rails Rake Tutorial](http://jasonseifer.com/2010/04/06/rake-tutorial)
 * [What’s New in Edge Rails: Database Seeding](http://ryandaigle.com/articles/2009/5/13/what-s-new-in-edge-rails-database-seeding)
  
-
-
-
-# 練習作業 8 - 將 Groupme deploy 到租來的 VPS
-
-
-### 作業目標
-
-在租來的 VPS 上面建置 Ruby on Rails production 環境，使用 Ruby Enterprise Edition 與 mod_rails。使用 [Capistrano](https://github.com/capistrano/capistrano/wiki) 佈署 application。
-
-### 練習主題
-
-* 學會如何自動部署專案
-* 使用 capistrano 自動部署專案
-* 操作 cap deploy:setup
-* 操作 cap deploy 
-* 操作 cap deploy:rollback 
-* 操作 cap deploy:restart
-
-
-### 參考資料
-
-* [rails-nginx-passenger-ubuntu](https://github.com/jnstq/rails-nginx-passenger-ubuntu)
-* [AWDR4](http://pragprog.com/titles/rails4/agile-web-development-with-rails) deploy 章節

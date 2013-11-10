@@ -37,6 +37,10 @@ class Post < ActiveRecord::Base
 end
 ~~~~~~~~
 
+{::pagebreak :/}
+
+### Scope 串接
+
 甚至也提供串接的功能：
 
 ~~~~~~~~

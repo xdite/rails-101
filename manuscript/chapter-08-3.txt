@@ -1,0 +1,52 @@
+{::pagebreak :/}
+
+
+## Ch 8.3 Capistrano 常用指令
+
+### cap deploy:setup
+
+第一次使用，運行此行指令，Capistrano 就會遠端到機器上幫你把 Capistrano 所需的一些目錄和檔案先預備好
+
+### cap deploy
+
+Deploy 專案到遠端
+
+### cap deploy:migrate
+
+遠端執行 migration
+
+### cap deploy:rollback
+
+deploy 的這一版本爛了，想回到沒爛的上一版本。
+
+### cap deploy:restart
+
+純粹重開 application
+
+## Ch 8.4 Deploy with Rails 4
+
+Rails 4 在部署上 Server 時有時候會遇到 Asset Compile 不過的問題。
+
+### Rails 3
+
+
+`config/production.rb`
+
+~~~~~~~~
+  config.serve_static_assets = false
+  config.assets.compile = false
+~~~~~~~~
+
+
+### Rails 4
+
+在 Rails 4 上要修改成
+
+~~~~~~~~
+  config.serve_static_assets = true 
+  config.assets.compile = true
+  config.assets.compress = true
+  config.assets.configure do |env|
+   env.logger = Rails.logger
+  end
+~~~~~~~~  

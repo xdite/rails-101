@@ -50,5 +50,9 @@ chapter-07.txt
 chapter-07-1.txt
 chapter-07-2.txt
 chapter-07-3.txt
+chapter-08.txt
+chapter-08-1.txt
+chapter-08-2.txt
+chapter-08-3.txt
 booklist.txt
 extra.txt
