@@ -1,3 +1,5 @@
+{::pagebreak :/}
+
 ## Ch 8.1 佈署 Rails Production 所需要的環境
 
 佈署 Rails Application 是件說簡單很簡單，說複雜也很複雜的事。佈署的手法有很多種搭配，筆者最推薦的其實是在 Ubuntu / Debian 安裝 Ruby Enterprise Edition，web sever 使用 nginx + mod_rails 的組合。之後再撰寫 Capistrano 的 recipe 來 deploy。

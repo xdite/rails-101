@@ -1,0 +1,75 @@
+{::pagebreak :/}
+
+## CoffeeScript
+
+Asset Pipeline 也支援了 [CoffeeScript](http://jashkenas.github.com/coffee-script/)。CoffeeScript 本身也是一種程式語言，開發者可以透過撰寫 CoffeeScript，編譯產生 JavaScript。它的語法有點像是 Ruby 與 Python 的混合體。
+
+Plurk 前創辦人 amix 曾寫過一篇這樣的 post：[CoffeeScript: The beautiful way to write Javascript](http://amix.dk/blog/post/19612) 來這樣形容 CoffeeScript：「以更漂亮的方式撰寫 JavaScript」。
+
+他認為目前 JavaScript 存在幾種問題：
+
+* JavaScript 是 functional language
+* 雖然是 OOP，但卻是 prototype-based 的 JavaScript 是 dynamic language，更像 Lisp 而不是 C/Java，但卻用了 C/Java 的語法。
+* 名字裡面有 Java，但卻和 Java 沒什麼關係。
+* 明明是 functional & dynamic laungaue，更偏向 Ruby / Python，卻使用了 C / Java 的 syntax，原本可以是一門很美的語言，卻活生生的變成了悲劇。
+
+而 CoffeeScript 的誕生，原因就是就是為了扭正這樣的局面，重新讓寫 JavaScript 這件事也可以變得「很美」。
+
+### CoffeeScript : The Good Part
+
+CoffeeScript 留下了 JavaScript 的 Good Parts，而在設計上極力消除 JavaScript 原生特性會產生的缺點，例如：
+
+### 消除到處污染的全域變數
+
+開發者在寫 JavaScript 時，常不自覺的使用全域變數，導致很多污染問題。而透過 CoffeeScript 生出來的 JavaScript，變數一律為區域變數（ 以 var 開頭）
+
+### Protected code
+
+使用 CoffeeScript 撰寫 function，產生出來的 JavaScript 必以一個 anonymous function: function(){}(); 自我包裹，獨立運作不干擾到其他 function。
+
+### 使用 -> 和 indent(縮排) 讓撰寫 function 更不容易出錯
+
+在撰寫 JavaScript 時，最令人不爽的莫過於 function(){}();，這些複雜的括號和分號稍微一漏，程式就不知道死在哪裡了….
+
+CoffeeScript 自動產生出來的 JavaScript 能夠確保括號們絕對不會被漏掉。
+
+### 更容易偵測 syntax error 並攔阻
+
+JavaScript 在 syntax error 時，非常難以偵測錯誤，幾乎是每個程式設計師的夢靨。而 CoffeeScript 是一門需要 compile 的語言，可以藉由這樣的特性擋掉 syntax error 的機會。
+
+### 實作物件導向更簡單
+
+Javascript 是一種物件導向語言，裡面所有東西幾乎都是物件。但 JavaScript 又不是一種真正的物件導向語言，因為它的語法裡面沒有 class（類別）。
+
+在 JavaScript 中，我們要實作 OOP 有很多種方式，你可以使用 prototype、function 或者是 Object。但無論是哪一種途徑，其實都「不簡單」。
+
+但 CoffeeScript 讓這件事變簡單了，比如以官網的這個例子：
+
+
+~~~~~~~   
+class Animal
+  constructor: (@name) ->
+
+  move: (meters) ->
+    alert @name + " moved #{meters}m."
+
+class Snake extends Animal
+  move: ->
+    alert "Slithering..."
+    super 5
+
+class Horse extends Animal
+  move: ->
+    alert "Galloping..."
+    super 45
+
+sam = new Snake "Sammy the Python"
+tom = new Horse "Tommy the Palomino"
+
+sam.move()
+tom.move()
+~~~~~~~   
+
+在往常不容易寫的漂亮的 JavaScript OO，可以被包裝得相當乾淨好維護。
+
+

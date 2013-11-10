@@ -1,0 +1,6 @@
+# 補充章節： Asset Pipeline
+
+
+Rails 在 3.1 之後，提供一套 Asset 開發流程，稱之 Asset Pipeline 。是一套讓開發者很方便能夠削減 (minify) 以及 壓縮 (compress) Javascript / CSS 檔案的框架。它同時也提供你直接利用其他語言如 CoffeeScript / SASS / ERB ，直接撰寫 assets ( 指的是 stylesheets / javascripts / images 這些靜態檔案) 的可能性。
+
+

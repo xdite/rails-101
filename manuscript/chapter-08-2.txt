@@ -13,6 +13,8 @@
 
 Capistrano 固然強大，但官方網站的文件卻讓人不易讀懂。 Bootstrappets 內建了一個已經寫好的 recipe，可以直接使用。
 
+（放在 config/deploy.rb ）
+
 {::pagebreak :/}
 
 ~~~~~~~~

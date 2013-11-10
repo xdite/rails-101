@@ -23,6 +23,8 @@ deploy 的這一版本爛了，想回到沒爛的上一版本。
 
 純粹重開 application
 
+{::pagebreak :/}
+
 ## Ch 8.4 Deploy with Rails 4
 
 Rails 4 在部署上 Server 時有時候會遇到 Asset Compile 不過的問題。
