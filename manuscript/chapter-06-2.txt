@@ -1,5 +1,68 @@
 ## Ch 6.2 自己撰寫的 helper 包裝 html
 
+Helper 是一些使用在 Rails 的 View 當中，用 Ruby 產生/整理 HTML code 的一些小方法。通常被放在 `app/helpers` 下。預設的 Helper 名字是對應 Controller 的，產生一個 Controller 時，通常會產生一個同名的 Helper。如 `PostsController` 與 `PostsHelper`。
+
+### 使用情境
+
+使用 Helper 的情境多半是：
+
+* 產生的 HTML code 需要與原始程式碼進行一些邏輯混合，但不希望 View 裡面搞得太髒。
+* 需要與預設的 Rails 內建的一些方便 Helper 交叉使用。
+
+使用 Helper 封裝程式碼可以帶給專案以下一些優點：
+
+* Don't repeat yourself（DRY）程式碼不重複
+* Good Encapsulation好的封裝性
+* 提供 view 模板良好的組織
+* 易於修改程式碼
+
+### 範例
+
+在剛剛的專案當中，顯示 Post 的程式碼如下：
+
+~~~~~~~~~
+  <%= @post.content %> %>
+~~~~~~~
+
+隨著專案變遷，這樣的程式碼，可能會依需求改成：
+
+（需要內容斷行）
+
+~~~~~~~~
+  <%= simple_format(@post.content) %> %>
+~~~~~~~~
+
+之後又改成 （只顯示頭一百字）
+
+~~~~~~~~
+  <%= truncate(simple_format(@post.content), :lenth => 100) %> %>
+~~~~~~~~
+
+最後又改成 （內容若有網址需要自動超連結）
+
+~~~~~~~~
+   <%= auto_link(truncate(simple_format(@post.content), :lenth => 100)) %>
+~~~~~~~~
+
+而麻煩的是，這樣類似的內容，常常在專案出現。每當需求變更，開發者就需要去找出來，有十個地方，就需要改十遍，很是麻煩。
+
+Helper 就是用在這樣的地方。與其一開始寫下
+
+~~~~~~~~~
+  <%= @post.content %> %>
+~~~~~~~
+
+不如，一開始就設計一個 Helper ` <%= render_post_content(@post) %>`
+
+~~~~~~~~~
+  def render_post_content(post)
+    auto_link(truncate(simple_format(@post.content), :lenth => 100))
+  end
+~~~~~~~
+
+以後變更需求就只要修改一個地方即可。
+
+
 ## Ch 6.3 使用 partial 整理 html
 
 ## Ch 6.4 使用 scope 整理 query

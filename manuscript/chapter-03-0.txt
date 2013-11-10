@@ -96,33 +96,33 @@ devise 的 view 預設是隱藏起來，直接使用 gem 內的 view。要客製
 
 ~~~~~~~~~
       invoke  Devise::Generators::SharedViewsGenerator
-      create    app/views/users/shared
-      create    app/views/users/shared/_links.erb
+      create    app/views/devise/shared
+      create    app/views/devise/shared/_links.erb
       invoke  simple_form_for
-      create    app/views/users/confirmations
-      create    app/views/users/confirmations/new.html.erb
-      create    app/views/users/passwords
-      create    app/views/users/passwords/edit.html.erb
-      create    app/views/users/passwords/new.html.erb
-      create    app/views/users/registrations
-      create    app/views/users/registrations/edit.html.erb
-      create    app/views/users/registrations/new.html.erb
-      create    app/views/users/sessions
-      create    app/views/users/sessions/new.html.erb
-      create    app/views/users/unlocks
-      create    app/views/users/unlocks/new.html.erb
+      create    app/views/devise/confirmations
+      create    app/views/devise/confirmations/new.html.erb
+      create    app/views/devise/passwords
+      create    app/views/devise/passwords/edit.html.erb
+      create    app/views/devise/passwords/new.html.erb
+      create    app/views/devise/registrations
+      create    app/views/devise/registrations/edit.html.erb
+      create    app/views/devise/registrations/new.html.erb
+      create    app/views/devise/sessions
+      create    app/views/devise/sessions/new.html.erb
+      create    app/views/devise/unlocks
+      create    app/views/devise/unlocks/new.html.erb
       invoke  erb
-      create    app/views/users/mailer
-      create    app/views/users/mailer/confirmation_instructions.html.erb
-      create    app/views/users/mailer/reset_password_instructions.html.erb
-      create    app/views/users/mailer/unlock_instructions.html.erb
+      create    app/views/devise/mailer
+      create    app/views/devise/mailer/confirmation_instructions.html.erb
+      create    app/views/devise/mailer/reset_password_instructions.html.erb
+      create    app/views/devise/mailer/unlock_instructions.html.erb
 ~~~~~~~~~
 
 {::pagebreak :/}
 
 ### 修改註冊表單
 
-註冊表單的檔案是  `app/views/users/registrations/new.html.erb`，加入一行 name 使之成為
+註冊表單的檔案是  `app/views/devise/registrations/new.html.erb`，加入一行 name 使之成為
 
 ~~~~~~~~~
 <h2>Sign up</h2>

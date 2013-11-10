@@ -19,7 +19,7 @@
 * 學會設定 Route
 * 學會 resources 的設定 （單層 resources)
 * 對 Rails RESTful 有初步的理解
-* 知道 before_filter 使用的場景，並如何應用
+* 知道 before_action 使用的場景，並如何應用
 
 
 

@@ -28,6 +28,7 @@
 在一般的認知中，Group 的開創者應該就要是 group 的一員。這有兩種作法，一種是到 `app/controller/groups_controller.rb` 裡的 `create` action 裡面加入 `current_user.join!(group)`
 
 ~~~~~~~~~~
+  def create
     @group = current_user.groups.build(group_params)
     if @group.save 
       current_user.join!(group)
