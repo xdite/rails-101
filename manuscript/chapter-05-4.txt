@@ -30,9 +30,9 @@
 (0.2ms)  SELECT COUNT(*) FROM `posts` WHERE `posts`.`group_id` = 1
 ~~~~~~~~
 
-如果你有開發過網頁程式 application 的經驗，在迴圈裡面跑 count 對效能是相當傷的。實務上我們相當不建議這麼做。
+如果你有開發過網頁程式 application 的經驗，就知道在迴圈裡面跑 count 對效能是相當傷的。實務上我們相當不建議這麼做。
 
-那麼，這一段要怎麼改善呢？比較直觀的想法，就是在 groups 這個 table 再開一欄叫作 `posts_count` 的欄位。然後在
+那麼這一段程式碼要怎麼改善呢？比較直觀的想法，就是在 groups 這個 table 再開一欄叫作 `posts_count` 的欄位。然後在
 create action 裡面對 `posts_count` +1 
 
 ~~~~~~~~  

@@ -1,14 +1,14 @@
 # 練習作業 6 - Refactor code
 
 
-## 作業目標
+### 作業目標
 
 * 使用系統 helper / 自己撰寫的 helper 包裝 html
 * 使用 partial 整理 html
 * 使用 scope 整理 query 
 
 
-## 練習主題
+### 練習主題
 
 * 練習使用內建 helper
 * 練習拆 partial
@@ -16,7 +16,3 @@
 
 
 
-
-## 作業解答
-
-TODO

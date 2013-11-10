@@ -2,5 +2,80 @@
  
 ## Ch 1.1.4 (補充) Strong Parameters
 
-TODO
+還記得 2012 年初開發圈曾經騰動一時的： [Github 被入侵事件](http://blog.xdite.net/posts/2012/03/05/github-hacked-rails-security/) 嗎？
 
+事件的起因是因為 Rails 內建的 mass assignment，無法容易保護資料的安全性。而原先內建的 attr_accessible / attr_protected 的設計並不足夠實務使用（無法強制 Developer 使用）。
+
+在該事件發生後，Rails 核心團隊在 3.2.3 之後的版本，都開啟了 config.whitelist_attributes = true 的選項作為預設。也就是專案自動會對所有的 model 都自動開啟白名單模式，你必須手動對每一個 model 都加上 attr_accessible。這樣表單送值才會有辦法運作。
+
+此舉好處是：「夠安全」，能強迫開發者在設計表單時記得審核 model 該欄位是否適用於 mass-assign。但這樣的機制也引發開發者「不實用」「找麻煩」的議論。
+
+### 臨時 Hack 找麻煩
+
+首先會遇到的第一個問題是：「新手容易踩中地雷」
+
+首先最麻煩的當然是，新手會被這一行設定整到。新手不知道此機制為何而來，出了問題也不知道如何關掉這個設定。更麻煩的是撰寫新手教學的人，必須又花上一大篇幅解釋 mass-assignment 的設計機制，為何重要，為何新手需要重視…etc.
+
+第二個問題: 「不是很實用」
+
+手動一個一個加上 attr_accessible 真的很煩人，因為這也表示，若新增一個欄位，開發者也要手動去加上 attr_accessible，否則很可能在某些表單直接出現異常現象。
+
+而最麻煩的還是，其實 attr_accessible 不敷使用，因為一個系統通常存在不只一種角色，普通使用與 Admin 需要的 mass-assignment 範圍絕對不盡相同。
+
+雖然 Rails 在 3.1 加入了 scoped mass assignment。但這也只能算是 model 方面的解決手法。一旦系統內有更多其他流程需求，scoped mass assignment 的設計頓時就不夠解決問題了…
+
+{::pagebreak :/}
+
+### 癥結點：欄位核准與否應該由 controller 管理，而非 model
+
+大家戰了一陣子，終於收斂出一個結論。一切的癥結點在於之前的設計想法都走錯了方向，欄位核准與否應該由 controller 決定。因為「流程需求」本來就應該作在 controller 裡面。新的 solution [strong_parameters](https://github.com/rails/strong_parameters/) 就是這個解法。
+
+在當時：Rails 之父 DHH 提供了他的最佳實務：
+
+
+~~~~~~~~
+
+class PostsController < ActionController::Base
+  def create
+    Post.create(post_params)
+  end
+  
+  def update
+    Post.find(params[:id]).update_attributes!(post_params)
+  end
+ 
+  private
+    def post_params
+      params[:post].slice(:title, :content)
+    end
+end
+~~~~~~~~
+
+使用 slice 去把真正需要的部分切出來，所以就算 hacker 打算送其他 parameter 也會被過濾掉(不會有 exception)。
+
+{::pagebreak :/}
+
+### Strong Parameters 的作法
+
+而 strong_parameters 的作法是必須過一段 permit，允許欄位。如果送不允許的欄位進來，會 throw exception。
+
+~~~~~~~~
+class PeopleController < ActionController::Base
+  def update
+    person.update_attributes!(person_params)
+    redirect_to :back
+  end
+
+  private
+    def person_params
+      params.require(:person).permit(:name, :age)
+    end
+end
+~~~~~~~~
+
+### 進階 Strong Parameters 
+
+當然，每一段 controller 都要來上這麼一段，有時候也挺煩人的。Railscast 也整理了一些[進階招數](http://railscasts.com/episodes/371-strong-parameters)：
+
+* Nested Attributes
+* Orgngized to Class

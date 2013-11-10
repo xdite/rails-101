@@ -12,7 +12,7 @@
 #### 安裝 boostrappers
 
 ~~~~~~~~
-gem install bootstrappers -v=4.0.rc1
+gem install bootstrappers -v=4.2.0.5
 ~~~~~~~~
 
 #### 用 boostrappers 建立新專案

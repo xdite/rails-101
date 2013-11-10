@@ -67,13 +67,13 @@ $ rake db:migrate
 
 ### What is 「db migration」? 
 
-在傳統開發 web 應用程式的流程中，開發者多半是使用 phpmyadmin 開設 db 欄位。因此在學習 Rails 之初，新手往往會提出一個好問題：為何在 Rails 內需要撰寫 db migration 檔？
+在傳統開發 web 應用程式的流程中，開發者多半是使用 phpmyadmin 開設 db 欄位。
 
-我來回答這個問題：理由是 db migration 是一個經過實證的 best practices。當多人同時在一個 project 內工作時，縱然程式碼可以受到版本控制，但是 db schema 卻可能是無法透過版本控制的一個隱憂。
+因此在學習 Rails 之初，剛入門的開發者往往會提出一個質疑：為何必須撰寫 db migration 檔去生欄位，而不是使用傳的 phpmyadmin？
 
-當多人都可以自由的刪改 db 欄位不受監督時，程式碼就無法與 db 欄位有著一致性，將會有出錯的可能性。
+理由是 db migration 是一個經過實證的最佳解。當多人同時在一個 project 內工作時，縱然程式碼可以受到版本控制，但是 db schema 卻可能是無法透過版本控制的一個隱憂。
 
-為了 automation 以及也能對 db schema 做版本控制，所以才有了 db migration file 的設計。
+當多人都可以自由的刪改 db 欄位不受監督時，程式碼就很難與 db 欄位有著一致性，將會有出錯的可能性。為了 automation 以及也能對 db schema 做版本控制，所以才有了 db migration file 的設計。
 
 
 ### 小結

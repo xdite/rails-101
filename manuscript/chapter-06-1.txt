@@ -1,0 +1,52 @@
+{::pagebreak :/}
+
+## Ch 6.1 使用系統 helper 整理 code
+
+我們已經初步完成了這個系統。但有一些設計看起來還是令人不太滿意的。比如說
+
+
+`post.updated_at` 與 `group.updated_at`。
+
+顯示出來的會是 `2013-05-31 14:47:31 UTC` 這種格式。
+
+
+### date.to_s
+
+但其實我們想要顯示的好看一點，可以改成這樣的寫法：
+
+
+* `post.updated_at.to_s(:long)` => May 31, 2013 18:04
+* `group.updated_at.to_s(:short)` => 31 May 18:04
+
+
+### simple_format
+
+當我們在顯示 `post.content` 時，有個困擾。我們在輸入框輸入
+
+~~~~~
+a
+b
+c
+~~~~~
+
+但在系統輸出的時候，HTML 並不會自動斷行，會顯示成
+
+~~~~~
+a b c
+~~~~~
+
+用 Enter 斷行的 `\r` 或 `\n` 在 HTML 裡面並不起作用。若要在 HTML 裡面正確斷行必須要使用 `<br>`。
+
+若在以往，要漂亮顯示文本，開發者必須自行寫一段 nl2br 的轉換 helper。不過 Rails 裡面內建 `simple_format` 這個 helper，可以自動幫我們處理這種雜事。
+
+`<%= simple_format(post.content) %>`
+
+
+### truncate
+
+
+在顯示 group.title 時，有時候我們也會遇到標題太長的問題，導致破版。所以要砍字，再加上 "..."
+
+Rails 內建了一個 `truncate` helper 可以快速辦到這個效果
+
+`<%= truncate(@group.title, :length => 17 ) %>`

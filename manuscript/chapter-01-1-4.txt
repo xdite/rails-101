@@ -5,21 +5,18 @@
 在 `app/controllers/groups_controller.rb` 加入 `create` 這個 action
 
 ~~~~~~~~
+
   def create
-    @group = Group.new(group_params)
-    @group.save
+    @group = Group.new(params[:group])
 
-    redirect_to groups_path
+    if @group.save
+      redirect_to groups_path
+    else
+      render :new
+    end
   end
+  
 
-
-
-  private
-
-
-  def group_params
-    params.require(:group).permit(:title, :description)
-  end
 
 ~~~~~~~~
 
@@ -47,13 +44,19 @@ end
 ~~~~~~~~
 
   def create
-    @group = Group.new(params[:group])
+    @group = Group.new(group_params)
+    @group.save
 
-    if @group.save
-      redirect_to groups_path
-    else
-      render :new
-    end
+    redirect_to groups_path
+  end
+
+
+
+  private
+
+
+  def group_params
+    params.require(:group).permit(:title, :description)
   end
 
 ~~~~~~~~

@@ -43,6 +43,7 @@ chapter-05-3.txt
 chapter-05-4.txt
 chapter-06.txt
 chapter-06-1.txt
+chapter-06-2.txt
 chapter-07.txt
 chapter-07-1.txt
 chapter-07-2.txt

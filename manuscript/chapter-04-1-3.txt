@@ -1,7 +1,7 @@
 {::pagebreak :/}
 
 
-## 4.1.3 join 與 quit action
+## Ch 4.1.3 join 與 quit action
 
 在 Groups Controller 加入以下這兩個 action
 

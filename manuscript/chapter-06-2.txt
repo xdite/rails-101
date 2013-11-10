@@ -1,0 +1,5 @@
+## Ch 6.2 自己撰寫的 helper 包裝 html
+
+## Ch 6.3 使用 partial 整理 html
+
+## Ch 6.4 使用 scope 整理 query
