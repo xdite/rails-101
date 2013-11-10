@@ -1,3 +1,67 @@
 {::pagebreak :/}
 
 ## Ch 6.4 使用 scope 整理 query
+
+在 Ch 5.3 裡面，我們在 index controller 裡面設計了一行程式碼，讓文章永遠按照最新的時間降序排列。
+
+
+~~~~~~~~
+class Account::PostsController < ApplicationController
+ 
+  def index
+    @posts = current_user.posts.order("updated_at DESC")
+  end
+
+end
+~~~~~~~~
+
+`posts.order("updated_at DESC")` 其實是一段可能會很常用到的程式碼。如果 View 需要 Helper 包裝整理，其實我們也需要工具來整理 Query。
+
+這段程式碼比較理想的方式其實是：
+
+~~~~~~~~
+class Account::PostsController < ApplicationController
+ 
+  def index
+    @posts = current_user.posts.recent
+  end
+
+end
+~~~~~~~~
+
+讓維護者可以從程式碼裡面知道這一個 controller 提供的是「最近的文章」。Rails 在 ORM 中提供了 Scope，可以讓開發者包裝 query：
+
+~~~~~~~~
+class Post < ActiveRecord::Base
+  scope :recent, -> { order("updated_at DESC") }
+end
+~~~~~~~~
+
+甚至也提供串接的功能：
+
+~~~~~~~~
+class Post < ActiveRecord::Base
+  scope :recent, -> { order("updated_at DESC") }
+  scope :published, -> { where(:published => true) }
+end
+~~~~~~~~
+
+你可以用不同的條件用「語意」串接組起想要撈出的資料。
+
+~~~~~~~~
+class Account::PostsController < ApplicationController
+
+  before_action :login_required
+  
+  def index
+    @posts = current_user.posts.published.hot
+  end
+
+end
+~~~~~~~~
+
+
+### 更多的 scope 用法 
+
+<http://edgeguides.rubyonrails.org/active_record_querying.html#scopes>
+

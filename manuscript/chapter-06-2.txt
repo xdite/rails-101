@@ -64,4 +64,6 @@ Helper 就是用在這樣的地方。與其一開始寫下
 
 以後變更需求就只要修改一個地方即可。
 
+### 更多的 Partial 用法 
 
+<http://guides.rubyonrails.org/layouts_and_rendering.html#using-partials>

@@ -1,3 +1,62 @@
 {::pagebreak :/}
 
 ## Ch 6.3 使用 partial 整理 html
+
+Partial 也是 Rails 提供用來整理 View 的一種方式，開發者可以使用 Partial 技巧將太長的 View 整理切該成好維護的小片程式碼。
+
+
+Helper 是一些使用在 Rails 的 View 當中，用 Ruby 產生/整理 HTML code 的一些小方法。通常被放在 `app/helpers` 下。預設的 Helper 名字是對應 Controller 的，產生一個 Controller 時，通常會產生一個同名的 Helper。如 `PostsController` 與 `PostsHelper`。
+
+### 使用情境
+
+什麼時候應該將把程式碼搬到 Partial 呢？
+
+＊long template | 如果當檔 HTML 超過兩頁
+＊highly duplicated | HTML 內容高度重複
+＊independent blocks | 可獨立作為功能區塊
+
+### 常見範例
+
+* nav/user_info
+* nav/admin_menu
+* vendor_js/google_analytics
+* vendor_js/disqus_js
+* global/footer
+
+本書範例 project 裡面的 layout/application.html.erb 就是很好的範例（見下頁）。
+
+{::pagebreak :/}
+
+~~~~~~~~~
+<%= render :partial => "common/menu" %>
+
+  <div class="container">
+
+      <%= notice_message %>
+
+      <div class="content">
+        <div class="row">
+          <%= yield %>
+          <%= yield (:sidebar) %>
+        </div> 
+    
+      </div>
+
+      <%= render :partial => "common/footer" %>    
+  </div>
+
+ 
+
+  <%= render :partial => "common/bootstrap_modal" %>    
+  <%= render :partial => "common/facebook_js" %>
+  <%= render :partial => "common/google_analytics" %>
+ 
+  <%= javascript_include_tag "application" %>
+
+  <%= yield :javascripts %>
+
+  ~~~~~~~~~
+
+### 更多的 Partial 用法 
+
+<http://guides.rubyonrails.org/layouts_and_rendering.html#using-partials>

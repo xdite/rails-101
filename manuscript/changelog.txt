@@ -1,4 +1,8 @@
 # CHANGELOG
 
-* 2013/11  修復 Bootstrapper, 書中錯誤
+* 2013/11  
+  - 修復 Bootstrapper, 更新專案至 Rails 4.0.0 書中錯誤, 加上程式碼的 Repo
+  - 加上 Helper 章節
+  - 加上 Partial 章節
+
 * 2013/06  更新至 Ch6
