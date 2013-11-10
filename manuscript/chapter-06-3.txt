@@ -1,0 +1,2 @@
+{::pagebreak :/}
+## Ch 6.3 使用 partial 整理 html

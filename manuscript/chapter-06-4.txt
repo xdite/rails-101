@@ -1,0 +1,3 @@
+{::pagebreak :/}
+
+## Ch 6.4 使用 scope 整理 query

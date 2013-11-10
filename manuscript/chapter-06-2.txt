@@ -1,3 +1,5 @@
+{::pagebreak :/}
+
 ## Ch 6.2 自己撰寫的 helper 包裝 html
 
 Helper 是一些使用在 Rails 的 View 當中，用 Ruby 產生/整理 HTML code 的一些小方法。通常被放在 `app/helpers` 下。預設的 Helper 名字是對應 Controller 的，產生一個 Controller 時，通常會產生一個同名的 Helper。如 `PostsController` 與 `PostsHelper`。
@@ -63,6 +65,3 @@ Helper 就是用在這樣的地方。與其一開始寫下
 以後變更需求就只要修改一個地方即可。
 
 
-## Ch 6.3 使用 partial 整理 html
-
-## Ch 6.4 使用 scope 整理 query
