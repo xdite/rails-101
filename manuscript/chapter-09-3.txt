@@ -1,0 +1,60 @@
+{::pagebreak :/}
+
+## Asset Pipeline 的架構
+
+Asset Pipeline 對於 assets 位置的定義。根據預設，你可以把 assets 放在以下三個資料夾內：
+
+* app/assets
+* lib/assets
+* vendor/assets
+
+
+理論上，你把 assets 丟在這三個資料夾內，在 application.css / application.js 內 require 都可以動。
+
+
+### 掛上其他 library
+
+要引用 3rd party vendor assets，只要在 application.css 或者 application.js 進行 require 就可以使用了。
+
+~~~~~~~
+//= require jquery
+//= require bootstrap
+~~~~~~~
+
+
+### 目錄夾的分類
+
+#### app/assets
+
+在 Rails 3.1.x 之後的版本，rails g controler posts，會自動在 assets/styelsheets/ 和 assets/javascripts/ 中產生對應的 scss 與 coffeescript 檔案。所以 app/assets 是讓開發者放「自己為專案手寫的 assets」的地方。
+
+#### lib/assets
+
+lib 是 library 的簡寫，這裡是放 LIBRARY 的地方。所以如果你為專案手寫的 assets 漸漸形成了 library 規模，比如說 mixin 或者是自己為專案整理了簡單的 bootstrap，應該放在 lib/ 下。
+
+#### vendor/assets
+
+verdor 是「供應商」的意思，也就是 「別人寫的」assets 都應該放在這裡。比如說:
+
+* jquery.*.js
+* fanfanfan icons
+* tinymce / ckeditor
+
+等等…
+
+
+### Rails Asset Gem 
+
+透過 Asset Pipleline 的架構，開發者可以很容易透過 Gem 的機制，將 3rd party 的 CSS Framework 打包封裝，直接掛在 Rails 專案裡面使用。
+
+比如說知名的 Fontawesome 這個 icon 專案，也有自己的 Rails gem <https://github.com/bokmann/font-awesome-rails>
+
+在 application.css 裡面掛上
+
+~~~~~~~  
+//= require font-awesome
+~~~~~~~  
+
+這樣就可以直接使用了。不需要像以前開發網站一樣，把整個 framwork COPY 到專案裡面，既髒又難維護。
+
+

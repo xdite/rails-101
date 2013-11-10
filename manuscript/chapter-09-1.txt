@@ -1,34 +1,27 @@
-{::pagebreak :/}
 
 ## SCSS
 
 SCSS 是一套新型的 Asset 語言，可以用「更合理的方式」撰寫 CSS。舉例來說：
 
+~~~~~~~~
+.content{ margin: 2em 0;}
+.content h1{ font-size: 2em;}
+~~~~~~~~
+
+在 SCSS 裡可以寫成巢狀的
 
 ~~~~~~~~
 .content{
- margin: 2em 0;
+margin: 2em 0;
+  h1{font-size: 2em;} 
 }
-
-.content h1{
-   font-size: 2em;
-}
-
 ~~~~~~~~
 
-在 SCSS 裡可以寫成巢狀
-
-~~~~~~~~
-.content{
-  margin: 2em 0;
-  h1{
-    font-size: 2em;
-  } 
-}
-
-~~~~~~~   
 
 編譯器會自動幫你編譯成 CSS。如此一來好維護多了。
+
+
+{::pagebreak :/}
 
 此外，SCSS 還支援一些強大的功能：如變數、函數、數學、繼承、mixin …等等。
 
@@ -38,26 +31,22 @@ SCSS 是一套新型的 Asset 語言，可以用「更合理的方式」撰寫 C
 
 但是 SCSS 可以讓我們使用變數去指定特定 style 的顏色。相當厲害。
 
-~~~~~~~   
-
+~~~~~~~
 $border-color: #3bbfce;
 $link-color: #3bbfcf'
 .content{
   border-color: $border-color;
   a{ color: $link-color; }
-}
-        
-~~~~~~~   
+} 
+~~~~~~~
 
 會產生出
 
 
-~~~~~~~   
-
+~~~~~~~
 .content{ border-color: #3bbfce; }
 .content a{color: #3bbfcf; }
-
-~~~~~~~   
+~~~~~~~
 
 ### Compass
 
@@ -65,7 +54,7 @@ $link-color: #3bbfcf'
 
 就如我們常常使用的圓角框技巧來說好了，以往我們要設計一個圓角框，必須囉哩八嗦的這樣寫：
 
-~~~~~~~   
+~~~~~~~
 #border-radius {
   -moz-border-radius: 25px;
   -webkit-border-radius: 25px;
@@ -74,12 +63,12 @@ $link-color: #3bbfcf'
   -khtml-border-radius: 25px;
   border-radius: 25px;
 }
-~~~~~~~   
+~~~~~~~
 
 而使用 Compass 我們只要這樣寫就可以了：
 
-~~~~~~~   
+~~~~~~~
 #border-radius {  @include border-radius(25px); }
-~~~~~~~   
+~~~~~~~
 
 

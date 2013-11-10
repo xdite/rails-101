@@ -19,25 +19,25 @@ Plurk 前創辦人 amix 曾寫過一篇這樣的 post：[CoffeeScript: The beaut
 
 CoffeeScript 留下了 JavaScript 的 Good Parts，而在設計上極力消除 JavaScript 原生特性會產生的缺點，例如：
 
-### 消除到處污染的全域變數
+#### 消除到處污染的全域變數
 
 開發者在寫 JavaScript 時，常不自覺的使用全域變數，導致很多污染問題。而透過 CoffeeScript 生出來的 JavaScript，變數一律為區域變數（ 以 var 開頭）
 
-### Protected code
+####  Protected code
 
 使用 CoffeeScript 撰寫 function，產生出來的 JavaScript 必以一個 anonymous function: function(){}(); 自我包裹，獨立運作不干擾到其他 function。
 
-### 使用 -> 和 indent(縮排) 讓撰寫 function 更不容易出錯
+#### 使用 -> 和 indent(縮排) 讓撰寫 function 更不容易出錯
 
-在撰寫 JavaScript 時，最令人不爽的莫過於 function(){}();，這些複雜的括號和分號稍微一漏，程式就不知道死在哪裡了….
+在撰寫 JavaScript 時，最令人不爽的莫過於 `function(){}();`，這些複雜的括號和分號稍微一漏，程式就不知道死在哪裡了….
 
 CoffeeScript 自動產生出來的 JavaScript 能夠確保括號們絕對不會被漏掉。
 
-### 更容易偵測 syntax error 並攔阻
+#### 更容易偵測 syntax error 並攔阻
 
 JavaScript 在 syntax error 時，非常難以偵測錯誤，幾乎是每個程式設計師的夢靨。而 CoffeeScript 是一門需要 compile 的語言，可以藉由這樣的特性擋掉 syntax error 的機會。
 
-### 實作物件導向更簡單
+#### 實作物件導向更簡單
 
 Javascript 是一種物件導向語言，裡面所有東西幾乎都是物件。但 JavaScript 又不是一種真正的物件導向語言，因為它的語法裡面沒有 class（類別）。
 
@@ -46,7 +46,7 @@ Javascript 是一種物件導向語言，裡面所有東西幾乎都是物件。
 但 CoffeeScript 讓這件事變簡單了，比如以官網的這個例子：
 
 
-~~~~~~~   
+~~~~~~~
 class Animal
   constructor: (@name) ->
 
@@ -68,7 +68,7 @@ tom = new Horse "Tommy the Palomino"
 
 sam.move()
 tom.move()
-~~~~~~~   
+~~~~~~~
 
 在往常不容易寫的漂亮的 JavaScript OO，可以被包裝得相當乾淨好維護。
 

@@ -134,7 +134,7 @@ I> 使用 RVM 安裝 gem 和 passenger-install-apache2-module 不需要加上 su
 ### 安裝必要 Ruby gems
 
 ~~~~~~~~~~~~~~~ 
-$ gem install rails --version 4.0.0.beta1
+$ gem install rails --version 4.0.0
 $ gem install mysql2
 $ gem install capistrano
 $ gem install capistrano-ext

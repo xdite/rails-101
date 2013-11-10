@@ -1,0 +1,30 @@
+{::pagebreak :/}
+
+## Rails 4 with Asset Pipeline
+
+在 Rails 4 上掛上 asset pipeline 跟 Rails 3 的方式有些許的不同。
+
+
+### Rails 3
+
+在 Rails 3 ，asset gem 基本上是被放在 asset 這個 group 的。
+
+~~~~~~~
+group :assets do
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
+  gem 'uglifier', '>= 1.0.3'
+  gem "compass-rails"
+end
+~~~~~~~
+
+### Rails 4
+
+但在 Rails 4 上，這些 gem 卻要移出來不放在 asset 這個 group 裡。另外若要使用 compass 的話，因為一些技術問題，也需要安裝 2.0.alpha.0 以上的 gem，才能正常引用 compass
+
+~~~~~~~
+gem 'uglifier', '>= 1.3.0' 
+gem 'coffee-rails', '~> 4.0.0' 
+gem 'sass-rails', '~> 4.0.0'
+gem "compass-rails", "~> 2.0.alpha.0"
+~~~~~~~

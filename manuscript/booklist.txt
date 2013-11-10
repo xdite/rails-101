@@ -21,8 +21,9 @@
 
 ## 初階基礎網頁設計 
 
-* CodeSchool [jQuery Air: First Flight](http://www.codeschool.com/courses/jquery-air-first-flight)
-* CodeSchool [jQuery Air: Captain's Log](http://www.codeschool.com/courses/jquery-air-captains-log)
+* CodeSchool [Try jQuery](https://www.codeschool.com/courses/try-jquery)
+* CodeSchool [JavaScript Road Trip Part 1](https://www.codeschool.com/courses/javascript-road-trip-part-1)
+* CodeSchool [JavaScript Road Trip Part 1](https://www.codeschool.com/courses/javascript-road-trip-part-2)
 * CodeSchool [CSS Cross-Country](http://www.codeschool.com/courses/css-cross-country)
 * Codecademy [Javascripts](http://www.codecademy.com/zh/tracks/javascript)
 

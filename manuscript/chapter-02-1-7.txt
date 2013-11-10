@@ -102,4 +102,16 @@ end
 
 ### 解說
 
-TODO
+before_action 是一個常見的 controller 技巧，用來收納重複的程式碼。
+
+before_action 可以用 only，指定某些 action 執行：
+
+~~~~~~~~
+before_action :find_group, :only => [:edit, :update]
+~~~~~~~~
+
+或者使用 except，排除某些 action 不執行：
+
+~~~~~~~~
+before_action :find_group, :except => [:show, :index]
+~~~~~~~~

@@ -17,10 +17,3 @@
 
 
 至此，我們完成了 Post 的 CRUD。
-
-
-{::pagebreak :/}
-
-### 解說
-
-TODO

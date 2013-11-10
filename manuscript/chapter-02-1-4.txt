@@ -32,10 +32,3 @@ touch app/views/posts/edit.html.erb
 </div>
 
 ~~~~~~~~
-
-{::pagebreak :/}
-
-
-### 解說
-
-TODO
