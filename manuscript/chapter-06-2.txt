@@ -24,27 +24,27 @@ Helper 是一些使用在 Rails 的 View 當中，用 Ruby 產生/整理 HTML co
 
 ~~~~~~~~~
   <%= @post.content %> %>
-~~~~~~~
+~~~~~~~~~
 
 隨著專案變遷，這樣的程式碼，可能會依需求改成：
 
 （需要內容斷行）
 
-~~~~~~~~
+~~~~~~~~~
   <%= simple_format(@post.content) %> %>
-~~~~~~~~
+~~~~~~~~~
 
 之後又改成 （只顯示頭一百字）
 
-~~~~~~~~
-  <%= truncate(simple_format(@post.content), :lenth => 100) %> %>
-~~~~~~~~
+~~~~~~~~~
+  <%= truncate(simple_format(@post.content), :lenth => 100) %>
+~~~~~~~~~
 
 最後又改成 （內容若有網址需要自動超連結）
 
-~~~~~~~~
+~~~~~~~~~
    <%= auto_link(truncate(simple_format(@post.content), :lenth => 100)) %>
-~~~~~~~~
+~~~~~~~~~
 
 而麻煩的是，這樣類似的內容，常常在專案出現。每當需求變更，開發者就需要去找出來，有十個地方，就需要改十遍，很是麻煩。
 
@@ -52,7 +52,7 @@ Helper 就是用在這樣的地方。與其一開始寫下
 
 ~~~~~~~~~
   <%= @post.content %> %>
-~~~~~~~
+~~~~~~~~~
 
 不如，一開始就設計一個 Helper ` <%= render_post_content(@post) %>`
 
@@ -60,7 +60,7 @@ Helper 就是用在這樣的地方。與其一開始寫下
   def render_post_content(post)
     auto_link(truncate(simple_format(@post.content), :lenth => 100))
   end
-~~~~~~~
+~~~~~~~~~
 
 以後變更需求就只要修改一個地方即可。
 

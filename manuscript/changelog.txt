@@ -1,0 +1,4 @@
+# CHANGELOG
+
+* 2013/11  修復 Bootstrapper, 書中錯誤
+* 2013/06  更新至 Ch6
