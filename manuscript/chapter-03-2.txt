@@ -181,4 +181,61 @@ end
 
 ### 解說 
 
-TODO
+在前面一章的例子裡面。我們都是使用 ` @group = Group.find(params[:id])`。
+
+但是這樣無法確保這個 action 的安全性。其實這幾個 action 必須是要「限定」本人才能修改的。但是初學者可能會寫出這樣的 code。
+
+~~~~~~~~~
+  def edit
+    @group = Group.find(params[:id])
+
+    if @group.user != current_user
+      flash[:warning] = "No Permission"
+      redirec_to root_path
+    end
+
+  end
+~~~~~~~~~
+
+事實上，我們可以只用 `current_user.groups` 這樣的天然限制。就足以阻擋掉這樣的非法存取了。
+
+~~~~~~~~~
+  def edit
+    @group = current_user.groups.find(params[:id])
+  end
+~~~~~~~~~
+
+在這個情況下，Rails 在 Production 環境上面會直接跳 404 找不到頁面。直接確保該頁面的安全性。
+
+以下的 create 這個例子也是類似的狀況。原先開發者可能會寫出
+
+~~~~~~~~~
+
+  def create
+    @group = Group.new(group_params)
+    @group.user = current_user
+    if @group.save 
+      redirect_to groups_path
+    else
+      render :new
+    end
+  end
+~~~~~~~~~
+
+{::pagebreak :/}
+
+利用內建的 association 就可以改寫成以下範例：
+
+~~~~~~~~~
+
+  def create
+    @group = current_user.groups.build(group_params)
+    if @group.save 
+      redirect_to groups_path
+    else
+      render :new
+    end
+  end
+~~~~~~~~~
+
+效果是一樣的。
