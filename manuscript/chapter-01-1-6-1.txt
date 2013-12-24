@@ -2,4 +2,4 @@
  
 ## Ch 1.1.6 (補充) update_attributes 與 update
 
-TODO
+在 Rails 4.0.0 前的 update 表單一向是使用 `update_attributes` 這個 API。而到了 Rails 4 之後改用 update。其最大的原因是因為 Security 架構改變。這部份的歷史因素可以參考 Ch 1.1.4。
