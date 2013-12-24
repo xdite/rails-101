@@ -71,4 +71,19 @@ end
 
 ### 解說
 
-TODO
+#### after_create
+
+`after_create` 是 ActiveRecord 提供的 callbacks，意旨在簡化程式碼。類似的 callbacks 還有
+
+* before_create
+* before_update
+* after_create
+* after_update
+
+等等...
+
+
+
+
+
+

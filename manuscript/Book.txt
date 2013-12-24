@@ -18,6 +18,8 @@ chapter-01-1-4-1.txt
 chapter-01-1-5.txt
 chapter-01-1-6.txt
 chapter-01-1-7.txt
+chapter-01-1-0-extra-2.txt
+chapter-01-1-0-extra-3.txt
 chapter-02.txt
 chapter-02-1.txt
 chapter-02-1-0.txt
@@ -60,5 +62,6 @@ chapter-09-1.txt
 chapter-09-2.txt
 chapter-09-3.txt
 chapter-09-4.txt
+recap.txt
 booklist.txt
 extra.txt

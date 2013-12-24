@@ -2,8 +2,12 @@
 
 * 2013/12
   * Fix 第四章錯誤
+  * Upgrade Bootstrappers
   * Fix Boostrappers 錯誤
+  * 把內建 mysql 改為 SQLite 避免更多錯誤
   * Fix production hack
+  * 把 TODO 解說補完
+
 * 2013/11  
   - 修復 Bootstrapper, 更新專案至 Rails 4.0.0 書中錯誤, 加上程式碼的 Repo
   - 加上 Helper 章節

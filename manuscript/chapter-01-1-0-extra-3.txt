@@ -1,0 +1,103 @@
+{::pagebreak :/}
+
+## 補充章節：More about RESTful on Rails
+
+
+有時候開發中也會出現超過這七種 action 之外的動作。那要如何整合進 RESTful 的 route 中呢？
+
+### Collection & Member
+
+#### Member
+
+宣告這個動作是屬於單個資源的 URI。可以透過 `/photos/1/preview` 進行 GET。有 `preview_photo_path(photo)` 或 `preview_photo_url(photo)`  這樣的 Url Helper 可以用。
+
+``` ruby
+resources :photos do
+  member do
+    get 'preview'
+  end
+end
+```
+
+也可以使用這種寫法：
+
+``` ruby
+resources :photos do
+  get 'preview', :on => :member
+end
+```
+
+#### Collection
+
+宣告這個動作是屬於一組資源的 URI。可以透過 `/photos/search` 進行 GET。有 `search_photos_path` 或 `search_photos_url` 這樣的 Url Helper 可以用。
+
+
+``` ruby
+resources :photos do
+  collection do
+    get 'search'
+  end
+end
+``` 
+
+{::pagebreak :/}
+
+也可以使用這種寫法：
+
+``` ruby
+resources :photos do
+  get 'search', :on => :collection
+end
+```
+
+### Nested Resources
+
+有時候我們會需要使用雙重 resources 來表示一組資源。比如說 Post 與 Comment ：
+
+``` ruby
+resources :posts do
+  resources :comments
+end
+```
+
+可以透過 `/posts/123/comments` 進行 GET。有 `post_comments_path(post)` 或 `post_comments_url(post)` 這樣的 Url Helper 可以用。
+
+而這樣的 URL 也很清楚的表明，這組資源就是用來存取 編號 123 的 post 下所有的 comments。
+
+而要拿取 Post 的 id 可以透過這樣的方式取得：
+
+``` ruby
+class CommentsController < ApplicationController
+
+  before_filter :find_post
+
+  def index
+    @comments = @post.comments
+  end
+
+  protected
+
+  def find_post
+    @post = Post.find(params[:post_id])
+  end
+end
+```
+
+{::pagebreak :/}
+
+### Namespace Resources
+
+但是像 /admin/posts/1/edit 這種 URL，用 Nested Resources 應該造不出來吧？沒錯，這樣的 URL 應該要使用 Namespace 去建構：
+
+``` ruby
+     namespace :admin do
+       # Directs /admin/products/* to Admin::PostsController
+       # (app/controllers/admin/posts_controller.rb)
+       resources :posts
+     end
+```
+可以透過 `/admin/posts/123/edit` 進行 GET。有 `edit_admin_post_path(post)` 或 `edit_admin_post_url(post)` 這樣的 Url Helper 可以用。
+
+### 延伸閱讀
+
+* [Rails Guide: Rails Routing from the Outside In](http://guides.rubyonrails.org/routing.html)

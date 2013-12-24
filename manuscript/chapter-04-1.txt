@@ -103,4 +103,15 @@ end
 ~~~~~~~~~
 
 
-### 解說 TODO
+### 解說
+
+#### Many to Many 關係
+
+~~~~~~~~~~
+  has_many :group_users
+  has_many :members, :through => :group_users, :source => :user
+~~~~~~~~~~
+
+Rails 常見的關係有 `has_one`,`belongs_to` 與 `has_many`。`has_many :through` 是最後一種。
+
+多數用在多對多（表間列表）的關係上。

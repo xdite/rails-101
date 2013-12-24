@@ -1,0 +1,36 @@
+{::pagebreak :/}
+
+## 總複習
+
+到目前為止。這本書提到的主題有
+
+* rvm 
+* pow
+* CRUD
+* RESTFUL
+* 雙層 RESTFUL
+* 登入（Devise)
+* Scope
+* Helper
+* Partial
+* Capistrano
+* Asset Pipeline
+
+這本書原始的想法，其實是把一個初學者需要自學「一年」（我沒有開玩笑）的主題，濃縮到幾個禮拜。所以基本上這本書不能用「看」的，必須要動手實作。並且重複練習 3 次以上。
+
+所以看到這裡，還請你重新再來一次。（認真）
+
+不過這次你可以嘗試不一樣的作法。
+
+
+#### 第二遍
+
+每個 chapter 都開一個 git branch 實作。並且推到 Github 上。
+
+#### 第三遍
+
+幫 Groupme 加上 admin 後台，以及其他功能。並且推到 Github 上。
+
+
+相信做到第三遍之後，你應該可以開始輕鬆看懂原本像天書一般的 Rails API。
+
