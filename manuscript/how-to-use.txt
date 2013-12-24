@@ -15,6 +15,17 @@
 發問請貼程式碼，可將程式碼貼在 [Gist](http://gist.github.com) 上，再轉貼到論壇上發問。
 
 
-## 本書程式碼
+### 本書程式碼
 
 本書程式碼放在： <https://github.com/xdite/groupme>
+
+### 開發環境
+
+我力求提供讀者一個能夠上手的 Rails 開發環境。但是要能夠建築出一個開發 Rails 的環境，變因實在太大。從
+
+* MacOS 的版本 10.7, 10.8, 10.9 的 command line 工具安裝方式與位置都不同
+* Debian 5,6 / Ubunbtu 10,11,12 的 apt-get 安裝 lib 位置與相依都不同
+* Ruby 從 1.8.7 -> 1.9.3 -> 2.0.0 的語言變更導致 library 不相容
+* Rails 從 3.0 -> 3.1 -> 3.2 到 4.0.0 rc1, beta1, official 的官方配置與 deploy 環境都不同
+
+如果本書提供的環境安裝方式無效，請儘量試試在 [Stackoverflow](http://stackoverflow.com/) 上找找，也許很快就能解決你的問題。 

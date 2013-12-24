@@ -11,3 +11,9 @@
 
 我現在在 [Rocodev](http://rocodev.com) 工作，這是我持有的軟體公司。
 
+
+## Logdown
+
+[Logdown](http://logdown.com) 是 [Rocodev](http://rocodev.com) 開發的一個 Blog 系統，非常適合拿來寫技術筆記。
+
+購買本書的讀者可以使用 rails101 這個 coupon 獲得 USD $10 的 Logdown 折扣。

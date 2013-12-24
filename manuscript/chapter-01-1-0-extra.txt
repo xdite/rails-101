@@ -45,7 +45,7 @@ end
 | GET: /groups/1 => |[:action => 'show', :id => 1]|
 | GET: /groups/1/edit =>| [:action => 'edit', :id => 1]|
 | GET: /groups/1.xml => |[:action => 'show', :id => 1, :format => 'xml']|
-| group: /groups => |[:action => 'create']|
+| POST: /groups => |[:action => 'create']|
 | PUT: /groups/1 => |[:action => 'update', :id => 1]|
 | DELETE: /groups/1 => |[:action => 'destroy', :id => 1]|
 
@@ -59,9 +59,9 @@ end
 |groups_path         |   GET     | `/groups`       | index|
 |group_path(id)      |   GET     | `/groups/1`     | show|
 |new_group_path      |   GET     | `/groups/new`   | new|
-|groups_path         |   group    | `/groups`       | create|
+|groups_path         |   POST    | `/groups`       | create|
 |edit_group_path(id) |   GET     | `/groups/1/edit`| edit|
-|bloh_path(id)      |   PUT     | `/groups/1`     | update |
+|group_path(id)      |   PUT     | `/groups/1`     | update |
 |group_path(id)      |   DELETE  | `/groups/1`     | destroy|
 
 
