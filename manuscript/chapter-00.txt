@@ -179,12 +179,13 @@ I>
 
 當首次打開 <http://groupmy.dev/> ，映入眼簾的會是這樣一個畫面。
 
-[圖]
+![](images/rails-init.png)
 
 這是 Rails 預設的最初歡迎頁面。接下來我們要將根目錄顯示的預設畫面，換成自訂的頁面，顯示 "Hello World"。
 
 而 Hello World 將會放在 pages 這個 controller 下的 wecleom 這個 action。
 
+{::pagebreak :/}
 
 ### 步驟 1: 產生 pages controller
 
@@ -231,9 +232,9 @@ end
 
 現在你可以成功的見到了 Hello World!
 
-[圖]
+![Hello world](images/helloworld.png)
 
-[圖]
+{::pagebreak :/}
 
 ## Rails 的 Routing
 

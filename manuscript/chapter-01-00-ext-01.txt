@@ -53,11 +53,15 @@ $ rake db:migrate
 
 打開 <http://groupme.dev/groups>
 
-[圖]
+![](images/group-scaffold.png)
+
+{::pagebreak :/}
 
 打開 <http://groupme.dev/posts/new>
 
-[圖]
+![](images/post-new.png)
+
+{::pagebreak :/}
 
 ### Scaffold 作了哪些事？
 

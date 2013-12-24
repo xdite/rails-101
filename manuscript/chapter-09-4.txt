@@ -20,7 +20,7 @@ end
 
 ### Rails 4
 
-但在 Rails 4 上，這些 gem 卻要移出來不放在 asset 這個 group 裡。另外若要使用 compass 的話，因為一些技術問題，也需要安裝 2.0.alpha.0 以上的 gem，才能正常引用 compass
+但在 Rails 4 上，這些 gem 卻要移出來不放在 asset 這個 group 裡。另外若要使用 compass 的話，因為一些技術問題，也需要安裝 1.1.2 以上的 gem，才能正常引用 compass
 
 ~~~~~~~
 gem 'uglifier', '>= 1.3.0' 
