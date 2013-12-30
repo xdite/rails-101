@@ -1,6 +1,14 @@
-# 本書由來
+# 如何排除障礙
 
-我自 2009 年以來，就開始訓練 Rails Developer。訓練方式是使用一系列題目，培養開發者對於 Rails 相關工具的熟悉度。
+1. 加入 https://www.facebook.com/groups/rails101/ FB 社團。在社團上問問題
+2. 在 Google 或 Stack Overflow 上用錯誤訊息關鍵字找答案。
+3. 你是不是忘了加 `@` 呢？
+4. 你是不是忘了跑 migration 呢？
+5. 你是不是忘記加欄位呢？
+6. 你是不是忘記 touch tmp/restart.txt 呢？
+7. 在 http://guides.rubyonrails.org 找線索
+8. 檢查 development.log 或者是 Chrome 的 DevTools Console
 
-這一本書是該系列題目的答案本。
+
+
 
