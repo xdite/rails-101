@@ -88,7 +88,7 @@ end
 
 {::pagebreak :/}
 
-接著我們要把 Groups 的幾個 action 內容替換掉：
+接著我們要把 Posts 的幾個 action 內容替換掉：
 
 ### create
 
