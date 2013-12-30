@@ -86,7 +86,7 @@ class Group < ActiveRecord::Base
 end
 ~~~~~~~~~
 
-修改 `app/models/post.rb` 加入 `belongs_to :post`
+修改 `app/models/post.rb` 加入 `belongs_to :group`
 
 ~~~~~~~~~
 class Post < ActiveRecord::Base
