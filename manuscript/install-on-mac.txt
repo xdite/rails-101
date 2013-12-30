@@ -51,7 +51,7 @@ Linux 使用者都會因為 package system maintainer 不是 Rails Developer 而
 ### 安裝 Homebrew
   
 ~~~~~~~~~~~~~~~ 
-$ /usr/bin/ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+$ ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 $ brew install git
 $ brew update
 
