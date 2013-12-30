@@ -15,9 +15,6 @@
 首先在 private 底下，新增一個 `find_group` method
 
 
-
-在 `app/controllers/groups_controller.rb` 加入 `destroy` 這個 action
-
 ~~~~~~~~
   def find_group
     @group = Group.find(params[:group_id])
