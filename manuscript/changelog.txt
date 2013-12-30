@@ -3,10 +3,13 @@
 * 2013/12
   * Fix 第四章錯誤
   * Upgrade Bootstrappers
-  * Fix Boostrappers 錯誤
+  * Fix Bootstrappers 錯誤
   * 把內建 mysql 改為 SQLite 避免更多錯誤
   * Fix production hack
   * 把 TODO 解說補完
+  * 新增 RESTFul 兩篇文章
+  * 加上 Recap
+  * 加上 Facebook 社團 <https://www.facebook.com/groups/rails101/>
 
 * 2013/11  
   - 修復 Bootstrapper, 更新專案至 Rails 4.0.0 書中錯誤, 加上程式碼的 Repo
