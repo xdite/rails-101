@@ -263,6 +263,7 @@ Rails 的路徑，是透過 `config/routes.rb` 下的設定進行 mapping。
 
 
 
+![Ruby on Rails 框架運作原理](images/Ruby-on-Rails-process.jpg)
 
 
 

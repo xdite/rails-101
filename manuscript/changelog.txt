@@ -1,5 +1,9 @@
 # CHANGELOG
 
+* 2014/01
+  * Fix 筆誤
+  * 更新圖表
+  
 * 2013/12
   * Fix 第四章錯誤
   * Upgrade Bootstrappers

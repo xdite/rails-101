@@ -64,7 +64,7 @@ end
 {::pagebreak :/}
 
 
-在 Group model 加入
+在 `app/models/group.rb` 加入
 
 ~~~~~~~~~
   has_many :group_users
@@ -93,7 +93,7 @@ end
 
 ~~~~~~~~~
 
-修改 GroupUser model 成
+修改 `app/models/group_user.rb` 成
 
 ~~~~~~~~~
 class GroupUser < ActiveRecord::Base

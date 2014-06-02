@@ -132,7 +132,7 @@ devise 的 view 預設是隱藏起來，直接使用 gem 內的 view。要客製
 
   <div class="form-inputs">
     <%= f.input :email, :required => true, :autofocus => true %>
-    <%= f.input :name, :required => true, :autofocus => true %>
+    <%= f.input :name, :required => true %>
     <%= f.input :password, :required => true %>
     <%= f.input :password_confirmation, :required => true %>
   </div>

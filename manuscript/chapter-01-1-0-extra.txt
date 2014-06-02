@@ -38,31 +38,6 @@ end
 
 ~~~~~~~~
 
-這樣的宣告將在自動對應 URL路徑跟 Controller 的 action ，而有以下的結果：
-
-| GET: /groups => |[:action => 'index']|
-| GET: /groups.xml => |[:action => 'index', :format => 'xml']|
-| GET: /groups/1 => |[:action => 'show', :id => 1]|
-| GET: /groups/1/edit =>| [:action => 'edit', :id => 1]|
-| GET: /groups/1.xml => |[:action => 'show', :id => 1, :format => 'xml']|
-| POST: /groups => |[:action => 'create']|
-| PUT: /groups/1 => |[:action => 'update', :id => 1]|
-| DELETE: /groups/1 => |[:action => 'destroy', :id => 1]|
-
-
-並產生了一套 url helpers 給 View 使用。
-
-
-
-|helpers            | HTTP Verb | PATH           | Action|
-|-------------------|-----------|----------------|-----|
-|groups_path         |   GET     | `/groups`       | index|
-|group_path(id)      |   GET     | `/groups/1`     | show|
-|new_group_path      |   GET     | `/groups/new`   | new|
-|groups_path         |   POST    | `/groups`       | create|
-|edit_group_path(id) |   GET     | `/groups/1/edit`| edit|
-|group_path(id)      |   PUT     | `/groups/1`     | update |
-|group_path(id)      |   DELETE  | `/groups/1`     | destroy|
-
+![RESTful 路徑對照表](images/RESTful.jpg)
 
 

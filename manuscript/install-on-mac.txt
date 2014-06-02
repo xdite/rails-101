@@ -44,9 +44,8 @@ Linux 使用者都會因為 package system maintainer 不是 Rails Developer 而
 
 ### 系統套件
 
-1. 進行 Mac 系統更新
-2. 從 Apple Store 上取得 Xcode 4.4 安裝
-3. `Xcode -> Preferences -> Downloads tab then install the “Command Line Tools.” ` 裝完請重開機（保險起見）。
+1. 進行 Mac 系統更新到最新版 10.9
+2. 從 Apple Store 上取得 Xcode 5.0.4 安裝 （內建 Command Tools )
 
 ### 安裝 Homebrew
   

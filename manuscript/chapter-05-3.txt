@@ -7,7 +7,7 @@
 比較適當的排列方式應該是以文章的「修改時間」「倒序排列」。也就是最近修改的文章要排在越上面才行。
 
 
-修改 `app/controllers/account/groups_controller.rb` 裡的內容
+修改 `app/controllers/account/posts_controller.rb` 裡的內容
 
 
 ~~~~~~~~

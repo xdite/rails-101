@@ -1,3 +1,1 @@
-chapter-01-1-0-extra.txt
-chapter-01-1-0-extra-2.txt
-chapter-01-1-0-extra-3.txt
+chapter-00.txt

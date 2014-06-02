@@ -103,7 +103,7 @@ end
 
 ~~~~~~~~  
 
-然後在子關係的欄位裡，這樣設定：
+然後在 `app/models/post.rb` 的欄位裡，這樣設定：
 
 ~~~~~~~~  
   belongs_to :group, :counter_cache => true

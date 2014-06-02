@@ -10,10 +10,11 @@
   end
 ~~~~~~~~
 
+解說：建立一個新的 Group object。
 
 ### 補上 view
 
-touch app/views/groups/new.html.erb
+touch `app/views/groups/new.html.erb`
 
 加入
 
