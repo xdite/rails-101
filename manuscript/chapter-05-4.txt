@@ -114,7 +114,7 @@ end
 
 {::pagebreak :/}
 
-而上了 counter_cache 之後，`<%= group.posts.count %>` 以後執行時，也會優先去找 `posts_count` 裡的值，而不是真的下 MySQL 的 COUNT 去實際算值。
+而上了 counter_cache 之後，`<%= group.posts.size %>` 以後執行時，也會優先去找 `posts_count` 裡的值，而不是真的下 MySQL 的 COUNT 去實際算值。
 
 而加了這個 posts_count 欄位之後，我們就可以修改 index 裡的排序規則變成以文章數量的熱門度 ASC 排序
 
