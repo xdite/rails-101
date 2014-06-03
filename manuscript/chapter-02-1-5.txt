@@ -3,7 +3,7 @@
 ## Ch 2.1.5 建立 Posts Controller 裡的 update
 
 
-在 `app/controllers/postss_controller.rb` 加入 `update` 這個 action
+在 `app/controllers/posts_controller.rb` 加入 `update` 這個 action
 
 ~~~~~~~~
   def update
