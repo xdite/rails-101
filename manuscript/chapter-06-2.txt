@@ -56,9 +56,10 @@ Helper 就是用在這樣的地方。與其一開始寫下
 
 不如，一開始就設計一個 Helper ` <%= render_post_content(@post) %>`
 
+在 `app/helpers/posts_helper.rb` 加入
 ~~~~~~~~~
   def render_post_content(post)
-    auto_link(truncate(simple_format(@post.content), :lenth => 100))
+    truncate(simple_format(post.content), :lenth => 100)
   end
 ~~~~~~~~~
 
