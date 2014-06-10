@@ -1,6 +1,6 @@
 {::pagebreak :/}
 
-## Ch 5.4 Group 的排序要以文章數量的熱門度 ASC 排序
+## Ch 5.4 Group 的排序要以文章數量的熱門度 DESC 排序
 
 在 `app/views/account/groups/index.html.erb` 裡面你應該有發現這一段 `<%= group.posts.count %>` code。
 
@@ -116,12 +116,12 @@ end
 
 而上了 counter_cache 之後，`<%= group.posts.count %>` 以後執行時，也會優先去找 `posts_count` 裡的值，而不是真的下 MySQL 的 COUNT 去實際算值。
 
-而加了這個 posts_count 欄位之後，我們就可以修改 index 裡的排序規則變成以文章數量的熱門度 ASC 排序
+而加了這個 posts_count 欄位之後，我們就可以修改 index 裡的排序規則變成以文章數量的熱門度 DESC 排序
 
 
 ~~~~~~~~  
   def index
-    @groups = current_user.participated_groups.order("posts_count ASC")
+    @groups = current_user.participated_groups.order("posts_count DESC")
   end
 ~~~~~~~~  
 
