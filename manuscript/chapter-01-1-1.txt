@@ -28,7 +28,7 @@ end
       <tr>
         <td> # </td>
         <td> Title </td>
-        <td> Descroption </td>
+        <td> Description </td>
       </tr>
     </thead>
 

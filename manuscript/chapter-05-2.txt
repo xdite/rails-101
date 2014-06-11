@@ -88,7 +88,7 @@ end
 
 {::pagebreak :/}
 
-修改 `app/common/_user_nav.html.erb` 裡的
+修改 `app/views/common/_user_nav.html.erb` 裡的
 
 ~~~~~~~~ 
       <%= render_list :class => "dropdown-menu" do |li|

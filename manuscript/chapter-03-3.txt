@@ -158,7 +158,7 @@ end
   <%= link_to("Edit", edit_group_path(@group) , :class => "btn btn-mini ")%> 
   <% end %>
 
-  <%= link_to("New Post", new_group_post_path(@group) , :class => "btn btn-mini btn-primary" if current_user )%>
+  <%= link_to("New Post", new_group_post_path(@group) , :class => "btn btn-mini btn-primary") if current_user )%>
   &nbsp;  
   </div>
 
