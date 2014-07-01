@@ -6,7 +6,7 @@
 
 ~~~~~~~~~
 def show
-  @group = Group.params([:id])
+  @group = Group.find(params[:id])
   @posts = @group.posts
 end
 
